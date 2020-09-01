@@ -94,6 +94,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao\Conn.cs" />
+    <Compile Include="ControleUsuario\Session.cs" />
+    <Compile Include="Criptografia\HashMd5.cs" />
     <Compile Include="Log\RegistraLog.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
