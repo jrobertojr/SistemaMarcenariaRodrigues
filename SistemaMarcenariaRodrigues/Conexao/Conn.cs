@@ -27,10 +27,10 @@ namespace SistemaMarcenariaRodrigues.Conexao
             {
                 string connectionString;
 
-                server = "";
-                database = "";
-                uid = "";
-                password = "";
+                server = Properties.Settings.Default.ServidorDB;
+                database = Properties.Settings.Default.BaseDados;
+                uid = Properties.Settings.Default.UsuarioDB;
+                password = Properties.Settings.Default.Senha;
                 connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
                 connection = new MySqlConnection(connectionString);
@@ -40,7 +40,6 @@ namespace SistemaMarcenariaRodrigues.Conexao
                 MessageBox.Show("Erro de conexão, contate o Administrador");
                 RegistraLog.Log($"Erro ao gerar string de conexão --- {ex}");
             }
-
         }
 
         //Abrir Conexão

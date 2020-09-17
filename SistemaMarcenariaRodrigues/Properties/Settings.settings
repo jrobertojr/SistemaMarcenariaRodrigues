@@ -1,7 +1,18 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SistemaMarcenariaRodrigues.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServidorDB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.0.0.156</Value>
+    </Setting>
+    <Setting Name="BaseDados" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dbmarcenariarodrigues</Value>
+    </Setting>
+    <Setting Name="UsuarioDB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Usuario</Value>
+    </Setting>
+    <Setting Name="Senha" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sucesso0801</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

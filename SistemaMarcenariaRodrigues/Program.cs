@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using SistemaMarcenariaRodrigues.Forms.Login;
+using System;
 using System.Windows.Forms;
 
 namespace SistemaMarcenariaRodrigues
@@ -16,7 +14,7 @@ namespace SistemaMarcenariaRodrigues
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new FormLogin());
         }
     }
 }
