@@ -29,22 +29,25 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btComercial = new System.Windows.Forms.Button();
-            this.btLoja = new System.Windows.Forms.Button();
+            this.btEntradaSaida = new System.Windows.Forms.Button();
             this.btProdutos = new System.Windows.Forms.Button();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.panelMenuEntradaSaida = new System.Windows.Forms.Panel();
+            this.btEstoque = new System.Windows.Forms.Button();
+            this.btCadastroInventario = new System.Windows.Forms.Button();
             this.panelMenuProduto = new System.Windows.Forms.Panel();
             this.btAdmTarefas = new System.Windows.Forms.Button();
+            this.panelMenuLogo = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelDesktop.SuspendLayout();
+            this.panelMenuEntradaSaida.SuspendLayout();
             this.panelMenuProduto.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelMenu.Controls.Add(this.btComercial);
-            this.panelMenu.Controls.Add(this.btLoja);
+            this.panelMenu.Controls.Add(this.btEntradaSaida);
             this.panelMenu.Controls.Add(this.btProdutos);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -52,29 +55,18 @@
             this.panelMenu.Size = new System.Drawing.Size(942, 31);
             this.panelMenu.TabIndex = 1;
             // 
-            // btComercial
+            // btEntradaSaida
             // 
-            this.btComercial.FlatAppearance.BorderSize = 0;
-            this.btComercial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btComercial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btComercial.Location = new System.Drawing.Point(236, 5);
-            this.btComercial.Name = "btComercial";
-            this.btComercial.Size = new System.Drawing.Size(108, 23);
-            this.btComercial.TabIndex = 2;
-            this.btComercial.Text = "COMERCIAL";
-            this.btComercial.UseVisualStyleBackColor = true;
-            // 
-            // btLoja
-            // 
-            this.btLoja.FlatAppearance.BorderSize = 0;
-            this.btLoja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btLoja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btLoja.Location = new System.Drawing.Point(104, 5);
-            this.btLoja.Name = "btLoja";
-            this.btLoja.Size = new System.Drawing.Size(126, 23);
-            this.btLoja.TabIndex = 1;
-            this.btLoja.Text = "LOJA SANDALIARIA";
-            this.btLoja.UseVisualStyleBackColor = true;
+            this.btEntradaSaida.FlatAppearance.BorderSize = 0;
+            this.btEntradaSaida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btEntradaSaida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btEntradaSaida.Location = new System.Drawing.Point(104, 5);
+            this.btEntradaSaida.Name = "btEntradaSaida";
+            this.btEntradaSaida.Size = new System.Drawing.Size(126, 23);
+            this.btEntradaSaida.TabIndex = 1;
+            this.btEntradaSaida.Text = "ENTRADA E SAÍDA";
+            this.btEntradaSaida.UseVisualStyleBackColor = true;
+            this.btEntradaSaida.Click += new System.EventHandler(this.btEntradaSaida_Click);
             // 
             // btProdutos
             // 
@@ -91,13 +83,52 @@
             // 
             // panelDesktop
             // 
+            this.panelDesktop.Controls.Add(this.panelMenuEntradaSaida);
             this.panelDesktop.Controls.Add(this.panelMenuProduto);
+            this.panelDesktop.Controls.Add(this.panelMenuLogo);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(0, 31);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(942, 475);
             this.panelDesktop.TabIndex = 2;
             this.panelDesktop.Click += new System.EventHandler(this.panelDeskTop_Click);
+            // 
+            // panelMenuEntradaSaida
+            // 
+            this.panelMenuEntradaSaida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelMenuEntradaSaida.Controls.Add(this.btEstoque);
+            this.panelMenuEntradaSaida.Controls.Add(this.btCadastroInventario);
+            this.panelMenuEntradaSaida.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMenuEntradaSaida.Location = new System.Drawing.Point(0, 20);
+            this.panelMenuEntradaSaida.Name = "panelMenuEntradaSaida";
+            this.panelMenuEntradaSaida.Size = new System.Drawing.Size(942, 20);
+            this.panelMenuEntradaSaida.TabIndex = 3;
+            this.panelMenuEntradaSaida.Visible = false;
+            // 
+            // btEstoque
+            // 
+            this.btEstoque.FlatAppearance.BorderSize = 0;
+            this.btEstoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btEstoque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btEstoque.Location = new System.Drawing.Point(295, 0);
+            this.btEstoque.Name = "btEstoque";
+            this.btEstoque.Size = new System.Drawing.Size(80, 20);
+            this.btEstoque.TabIndex = 2;
+            this.btEstoque.Text = "ESTOQUE";
+            this.btEstoque.UseVisualStyleBackColor = true;
+            // 
+            // btCadastroInventario
+            // 
+            this.btCadastroInventario.FlatAppearance.BorderSize = 0;
+            this.btCadastroInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCadastroInventario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btCadastroInventario.Location = new System.Drawing.Point(135, 0);
+            this.btCadastroInventario.Name = "btCadastroInventario";
+            this.btCadastroInventario.Size = new System.Drawing.Size(154, 20);
+            this.btCadastroInventario.TabIndex = 1;
+            this.btCadastroInventario.Text = "CADASTRO INVENTARIO";
+            this.btCadastroInventario.UseVisualStyleBackColor = true;
+            this.btCadastroInventario.Click += new System.EventHandler(this.btCadastroInventario_Click);
             // 
             // panelMenuProduto
             // 
@@ -123,6 +154,19 @@
             this.btAdmTarefas.UseVisualStyleBackColor = true;
             this.btAdmTarefas.Click += new System.EventHandler(this.btAdmTarefas_Click);
             // 
+            // panelMenuLogo
+            // 
+            this.panelMenuLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMenuLogo.BackgroundImage = global::SistemaMarcenariaRodrigues.Properties.Resources.MRmarca;
+            this.panelMenuLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelMenuLogo.Location = new System.Drawing.Point(258, 116);
+            this.panelMenuLogo.Name = "panelMenuLogo";
+            this.panelMenuLogo.Size = new System.Drawing.Size(435, 266);
+            this.panelMenuLogo.TabIndex = 4;
+            this.panelMenuLogo.Click += new System.EventHandler(this.panelMenuLogo_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,23 +180,27 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marcenaria Rodrigues";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenu_FormClosing);
             this.panelMenu.ResumeLayout(false);
             this.panelDesktop.ResumeLayout(false);
+            this.panelMenuEntradaSaida.ResumeLayout(false);
             this.panelMenuProduto.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenu_FormClosing);
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btComercial;
-        private System.Windows.Forms.Button btLoja;
+        private System.Windows.Forms.Button btEntradaSaida;
         private System.Windows.Forms.Button btProdutos;
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Panel panelMenuProduto;
         private System.Windows.Forms.Button btAdmTarefas;
+        private System.Windows.Forms.Panel panelMenuEntradaSaida;
+        private System.Windows.Forms.Button btEstoque;
+        private System.Windows.Forms.Button btCadastroInventario;
+        private System.Windows.Forms.Panel panelMenuLogo;
     }
 }
 

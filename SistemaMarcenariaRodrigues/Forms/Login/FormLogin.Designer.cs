@@ -108,6 +108,7 @@
             this.btLogar.FlatAppearance.BorderSize = 0;
             this.btLogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLogar.ForeColor = System.Drawing.Color.White;
             this.btLogar.Location = new System.Drawing.Point(201, 223);
             this.btLogar.Name = "btLogar";
             this.btLogar.Size = new System.Drawing.Size(90, 28);

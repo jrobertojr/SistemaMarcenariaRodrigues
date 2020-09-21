@@ -2,13 +2,7 @@
 using SistemaMarcenariaRodrigues.Log;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaMarcenariaRodrigues.Forms.Produtos
@@ -105,13 +99,18 @@ namespace SistemaMarcenariaRodrigues.Forms.Produtos
 
         private void AlimentaEditar()
         {
-            lbEditarCodigoR.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Id"].Value.ToString();
-            txEditarProduto.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Produto"].Value.ToString();
-            txEditarDimensoes.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Dimensoes"].Value.ToString();
-            txEditarFornecedor.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Fornecedor"].Value.ToString();
-            txEditarDetalhes.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Detalhe"].Value.ToString();
-            cbEditarStatus.SelectedIndex =
-                dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Status"].Value.ToString() == "Inativo" ? 0 : 1;
+            if (dgvProdutos.DataSource != null)
+            {
+                lbEditarCodigoR.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Id"].Value.ToString();
+                txEditarProduto.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Produto"].Value.ToString();
+                txEditarDimensoes.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Dimensoes"].Value.ToString();
+                txEditarFornecedor.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Fornecedor"].Value.ToString();
+                txEditarDetalhes.Text = dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Detalhe"].Value.ToString();
+                cbEditarStatus.SelectedIndex =
+                    dgvProdutos.Rows[dgvProdutos.SelectedRows[0].Index].Cells["Status"].Value.ToString() == "Inativo" ? 0 : 1;
+            }
+            else
+                MessageBox.Show("Não à produto para editar");
         }
 
         private void btEsconderCadastro_Click(object sender, EventArgs e)
@@ -194,10 +193,12 @@ namespace SistemaMarcenariaRodrigues.Forms.Produtos
 
                 totalDeRegistros = int.Parse(ListaContagemSoma[0]);
 
-                int calculoPaginas = totalDeRegistros / int.Parse(cbQtdPagina.Text);
-                int numeroDePaginas = calculoPaginas + 1;
-                lbPagina.Text = pagina + "/" + numeroDePaginas;
-
+                if(totalDeRegistros > 0)
+                {
+                    int calculoPaginas = totalDeRegistros / int.Parse(cbQtdPagina.Text);
+                    int numeroDePaginas = calculoPaginas + 1;
+                    lbPagina.Text = pagina + "/" + numeroDePaginas;
+                }
                 if (ultimaPosicao < totalDeRegistros)
                 {
                     dgvProdutos.DataSource = produtosAcoesDB.Select(

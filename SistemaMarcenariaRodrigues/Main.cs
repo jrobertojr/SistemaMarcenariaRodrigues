@@ -1,4 +1,5 @@
-﻿using SistemaMarcenariaRodrigues.Forms.Produtos;
+﻿using SistemaMarcenariaRodrigues.Forms.EntradaSaida;
+using SistemaMarcenariaRodrigues.Forms.Produtos;
 using SistemaMarcenariaRodrigues.Log;
 using System;
 using System.Collections.Generic;
@@ -56,17 +57,37 @@ namespace SistemaMarcenariaRodrigues
 
         private void btProdutos_Click(object sender, EventArgs e)
         {
+            panelMenuEntradaSaida.Hide();
+
             panelMenuProduto.Show();
+        }
+
+        private void btEntradaSaida_Click(object sender, EventArgs e)
+        {
+            panelMenuProduto.Hide();
+
+            panelMenuEntradaSaida.Show();
         }
 
         private void panelDeskTop_Click(object sender, EventArgs e)
         {
             panelMenuProduto.Hide();
+            panelMenuEntradaSaida.Hide();
+        }
+        private void panelMenuLogo_Click(object sender, EventArgs e)
+        {
+            panelMenuProduto.Hide();
+            panelMenuEntradaSaida.Hide();
         }
 
         private void btAdmTarefas_Click(object sender, EventArgs e)
         {
             AbrirFormNoPainel<FormCadastroProdutos>();
+        }
+
+        private void btCadastroInventario_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPainel<FormCadastroInventario>();
         }
     }
 }

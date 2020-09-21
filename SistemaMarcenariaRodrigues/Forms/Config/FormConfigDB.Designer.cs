@@ -138,6 +138,7 @@
             this.btCancelar.FlatAppearance.BorderSize = 0;
             this.btCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCancelar.ForeColor = System.Drawing.Color.White;
             this.btCancelar.Location = new System.Drawing.Point(237, 177);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(90, 28);
@@ -152,6 +153,7 @@
             this.btSalvar.FlatAppearance.BorderSize = 0;
             this.btSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSalvar.ForeColor = System.Drawing.Color.White;
             this.btSalvar.Location = new System.Drawing.Point(134, 177);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(90, 28);

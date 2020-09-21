@@ -4,9 +4,6 @@ using SistemaMarcenariaRodrigues.Model.Produtos;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemaMarcenariaRodrigues.Acoes.Produtos
 {
@@ -21,10 +18,10 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
                 List<string> listaResultado = new List<string>();
 
                 string query = $@"
-                SELECT 
-	                COUNT(*)
-                FROM produtos
-                WHERE id > 0";
+                    SELECT 
+	                    COUNT(*)
+                    FROM produtos
+                    WHERE id > 0";
 
                 if (id > 0)
                     query += $" AND id = {id} ";
@@ -55,16 +52,16 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
                 List<ProdutosModel> retorno = new List<ProdutosModel>();
 
                 string query = $@"
-                SELECT 
-	                id,
-                    produto,
-                    dimensoes,
-                    fornecedor,
-                    detalhe,
-                    status,
-                    data
-                FROM produtos
-                WHERE id > 0";
+                    SELECT 
+	                    id,
+                        produto,
+                        dimensoes,
+                        fornecedor,
+                        detalhe,
+                        status,
+                        data
+                    FROM produtos
+                    WHERE id > 0";
 
                 if (id > 0)
                     query += $" AND id = {id} ";
@@ -94,7 +91,7 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
                         Fornecedor = tabela.Rows[i]["fornecedor"].ToString(),
                         Detalhe = tabela.Rows[i]["detalhe"].ToString(),
                         Status = (bool)tabela.Rows[i]["status"] == true ? "Ativo" : "Inativo",
-                        Data = tabela.Rows[i]["data"].ToString()
+                        Data = Convert.ToDateTime(tabela.Rows[i]["data"].ToString()).ToString("dd/MM/yyyy")
                     };
                     retorno.Add(produtosModel);
                 }
@@ -102,7 +99,7 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
             }
             catch (Exception ex)
             {
-                RegistraLog.Log($"Erro ao retornar dados de produto -- {ex}");
+                RegistraLog.Log($"Erro ao retornar dados de Produto -- {ex}");
                 return null;
             }
         }
@@ -115,9 +112,21 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
                     return "Todos os campos devem ser prenchido";
 
                 string query = $@"
-                INSERT 
-                INTO produtos (produto, dimensoes, fornecedor, detalhe, status, data)
-                VALUES ('{produto}', '{dimensoes}', '{fornecedor}', '{detalhe}', 1, NOW())";
+                    INSERT 
+                    INTO produtos (
+                        produto,
+                        dimensoes,
+                        fornecedor,
+                        detalhe,
+                        status,
+                        data)
+                    VALUES (
+                        '{produto}',
+                        '{dimensoes}',
+                        '{fornecedor}',
+                        '{detalhe}',
+                        1,
+                        NOW())";
 
                 Connection.Sql(query);
 
@@ -126,7 +135,7 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
             catch (Exception ex)
             {
                 RegistraLog.Log($"Erro ao enviar cadastro de produtos -- {ex}");
-                return null;
+                return "Erro ao cadastrar produto";
             }
         }
 

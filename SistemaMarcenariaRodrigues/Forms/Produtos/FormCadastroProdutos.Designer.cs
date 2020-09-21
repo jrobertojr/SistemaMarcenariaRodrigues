@@ -641,7 +641,7 @@
             // 
             this.lbCadastroDetalhes.AutoSize = true;
             this.lbCadastroDetalhes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCadastroDetalhes.Location = new System.Drawing.Point(440, 19);
+            this.lbCadastroDetalhes.Location = new System.Drawing.Point(440, 20);
             this.lbCadastroDetalhes.Name = "lbCadastroDetalhes";
             this.lbCadastroDetalhes.Size = new System.Drawing.Size(49, 13);
             this.lbCadastroDetalhes.TabIndex = 45;
@@ -649,7 +649,7 @@
             // 
             // txCadastroDetalhes
             // 
-            this.txCadastroDetalhes.Location = new System.Drawing.Point(443, 35);
+            this.txCadastroDetalhes.Location = new System.Drawing.Point(443, 36);
             this.txCadastroDetalhes.Multiline = true;
             this.txCadastroDetalhes.Name = "txCadastroDetalhes";
             this.txCadastroDetalhes.Size = new System.Drawing.Size(208, 69);
@@ -659,7 +659,7 @@
             // 
             this.lbCadastroFornecedor.AutoSize = true;
             this.lbCadastroFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCadastroFornecedor.Location = new System.Drawing.Point(12, 66);
+            this.lbCadastroFornecedor.Location = new System.Drawing.Point(226, 17);
             this.lbCadastroFornecedor.Name = "lbCadastroFornecedor";
             this.lbCadastroFornecedor.Size = new System.Drawing.Size(104, 13);
             this.lbCadastroFornecedor.TabIndex = 43;
@@ -667,7 +667,7 @@
             // 
             // txCadastroFornecedor
             // 
-            this.txCadastroFornecedor.Location = new System.Drawing.Point(15, 85);
+            this.txCadastroFornecedor.Location = new System.Drawing.Point(229, 36);
             this.txCadastroFornecedor.Name = "txCadastroFornecedor";
             this.txCadastroFornecedor.Size = new System.Drawing.Size(208, 20);
             this.txCadastroFornecedor.TabIndex = 10;
@@ -683,7 +683,7 @@
             // 
             this.lbCadastroDimensoes.AutoSize = true;
             this.lbCadastroDimensoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCadastroDimensoes.Location = new System.Drawing.Point(226, 65);
+            this.lbCadastroDimensoes.Location = new System.Drawing.Point(226, 66);
             this.lbCadastroDimensoes.Name = "lbCadastroDimensoes";
             this.lbCadastroDimensoes.Size = new System.Drawing.Size(59, 13);
             this.lbCadastroDimensoes.TabIndex = 26;
@@ -691,7 +691,7 @@
             // 
             // txCadastroDimensoes
             // 
-            this.txCadastroDimensoes.Location = new System.Drawing.Point(229, 84);
+            this.txCadastroDimensoes.Location = new System.Drawing.Point(229, 85);
             this.txCadastroDimensoes.Name = "txCadastroDimensoes";
             this.txCadastroDimensoes.Size = new System.Drawing.Size(208, 20);
             this.txCadastroDimensoes.TabIndex = 11;

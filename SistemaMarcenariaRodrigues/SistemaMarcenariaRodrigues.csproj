@@ -93,6 +93,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acoes\EntradaSaida\InventarioAcoes.cs" />
+    <Compile Include="Acoes\EntradaSaida\InventarioAcoesDB.cs" />
+    <Compile Include="Acoes\Operacoes\OperacoesAcoesDB.cs" />
     <Compile Include="Acoes\Produtos\ProdutosAcoesDB.cs" />
     <Compile Include="Acoes\Usuario\UsuarioAcoesDB.cs" />
     <Compile Include="Conexao\Conn.cs" />
@@ -104,6 +107,12 @@
     </Compile>
     <Compile Include="Forms\Config\FormConfigDB.Designer.cs">
       <DependentUpon>FormConfigDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EntradaSaida\FormCadastroInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EntradaSaida\FormCadastroInventario.Designer.cs">
+      <DependentUpon>FormCadastroInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login\FormLogin.cs">
       <SubType>Form</SubType>
@@ -124,12 +133,17 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Produtos\ProdutosModel.cs" />
-    <Compile Include="Model\Usuario\UsuarioModel.cs" />
+    <Compile Include="Model\InventarioModel.cs" />
+    <Compile Include="Model\OperacoesModel.cs" />
+    <Compile Include="Model\ProdutosModel.cs" />
+    <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Config\FormConfigDB.resx">
       <DependentUpon>FormConfigDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EntradaSaida\FormCadastroInventario.resx">
+      <DependentUpon>FormCadastroInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
