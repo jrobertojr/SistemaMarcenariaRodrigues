@@ -11,11 +11,12 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
     {
         private Conn Connection = new Conn();
 
-        public List<string> Count(int id, string produto, string fornecedor)
+        public List<string> Count(int id, string produto, string fornecedor, string dataInicio, string dataFim, int status)
         {
             try
             {
                 List<string> listaResultado = new List<string>();
+                bool statusResultado = status == 1 ? true : false;
 
                 string query = $@"
                     SELECT 
@@ -29,6 +30,10 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
                     query += $" AND produto LIKE '%{produto}%' ";
                 if (fornecedor != null)
                     query += $" AND fornecedor LIKE '%{fornecedor}%' ";
+                if (status > 0)
+                    query += $" AND status = {statusResultado} ";
+                if (dataInicio != null && dataFim != null)
+                    query += $" AND data BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
 
                 DataTable tabela = Connection.SqlDataTable(query);
 
@@ -44,12 +49,13 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
             }
         }
 
-        public List<ProdutosModel> Select(int id, string produto, string fornecedor, string ordem, int? ultimaPosicao,
-            int? numeroDeRegistos)
+        public List<ProdutosModel> Select(int id, string produto, string fornecedor, string dataInicio, string dataFim,
+            int status, string ordem, int? ultimaPosicao, int? numeroDeRegistos)
         {
             try
             {
                 List<ProdutosModel> retorno = new List<ProdutosModel>();
+                bool statusResultado = status == 1 ? true : false;
 
                 string query = $@"
                     SELECT 
@@ -69,6 +75,10 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
                     query += $" AND produto LIKE '%{produto}%' ";
                 if (fornecedor != null)
                     query += $" AND fornecedor LIKE '%{fornecedor}%' ";
+                if (status > 0)
+                    query += $" AND status = {statusResultado} ";
+                if (dataInicio != null && dataFim != null)
+                    query += $" AND data BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
                 if (ordem != "" && ordem != null)
                 {
                     if (ordem == "crescente")

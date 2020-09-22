@@ -81,6 +81,13 @@
             this.txCadastroDimensoes = new System.Windows.Forms.TextBox();
             this.lbCadastroProduto = new System.Windows.Forms.Label();
             this.btCadastrar = new System.Windows.Forms.Button();
+            this.dtFiltroInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtFiltroFim = new System.Windows.Forms.DateTimePicker();
+            this.cbFiltroStatus = new System.Windows.Forms.ComboBox();
+            this.lbFiltroStatus = new System.Windows.Forms.Label();
+            this.ckFiltroDatas = new System.Windows.Forms.CheckBox();
+            this.lbFiltroDataInicio = new System.Windows.Forms.Label();
+            this.lbFiltroDataFim = new System.Windows.Forms.Label();
             this.panelBarraJanela.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
@@ -193,16 +200,23 @@
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvProdutos.Location = new System.Drawing.Point(0, 326);
+            this.dgvProdutos.Location = new System.Drawing.Point(0, 339);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdutos.Size = new System.Drawing.Size(954, 149);
+            this.dgvProdutos.Size = new System.Drawing.Size(954, 136);
             this.dgvProdutos.TabIndex = 10;
             this.dgvProdutos.Click += new System.EventHandler(this.dgvProdutos_Click);
             // 
             // gbFiltro
             // 
             this.gbFiltro.BackColor = System.Drawing.Color.LightGray;
+            this.gbFiltro.Controls.Add(this.lbFiltroDataFim);
+            this.gbFiltro.Controls.Add(this.lbFiltroDataInicio);
+            this.gbFiltro.Controls.Add(this.ckFiltroDatas);
+            this.gbFiltro.Controls.Add(this.lbFiltroStatus);
+            this.gbFiltro.Controls.Add(this.cbFiltroStatus);
+            this.gbFiltro.Controls.Add(this.dtFiltroFim);
+            this.gbFiltro.Controls.Add(this.dtFiltroInicio);
             this.gbFiltro.Controls.Add(this.lbPagina);
             this.gbFiltro.Controls.Add(this.btProximaPagina);
             this.gbFiltro.Controls.Add(this.btPaginaAnterior);
@@ -220,7 +234,7 @@
             this.gbFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFiltro.Location = new System.Drawing.Point(0, 234);
             this.gbFiltro.Name = "gbFiltro";
-            this.gbFiltro.Size = new System.Drawing.Size(954, 92);
+            this.gbFiltro.Size = new System.Drawing.Size(954, 105);
             this.gbFiltro.TabIndex = 7;
             this.gbFiltro.TabStop = false;
             this.gbFiltro.Text = "Filtro";
@@ -230,7 +244,7 @@
             this.lbPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbPagina.AutoSize = true;
             this.lbPagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPagina.Location = new System.Drawing.Point(876, 68);
+            this.lbPagina.Location = new System.Drawing.Point(876, 81);
             this.lbPagina.Name = "lbPagina";
             this.lbPagina.Size = new System.Drawing.Size(40, 13);
             this.lbPagina.TabIndex = 52;
@@ -244,7 +258,7 @@
             this.btProximaPagina.FlatAppearance.BorderSize = 0;
             this.btProximaPagina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btProximaPagina.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btProximaPagina.Location = new System.Drawing.Point(919, 63);
+            this.btProximaPagina.Location = new System.Drawing.Point(919, 76);
             this.btProximaPagina.Name = "btProximaPagina";
             this.btProximaPagina.Size = new System.Drawing.Size(23, 23);
             this.btProximaPagina.TabIndex = 8;
@@ -260,7 +274,7 @@
             this.btPaginaAnterior.FlatAppearance.BorderSize = 0;
             this.btPaginaAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPaginaAnterior.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btPaginaAnterior.Location = new System.Drawing.Point(847, 63);
+            this.btPaginaAnterior.Location = new System.Drawing.Point(847, 76);
             this.btPaginaAnterior.Name = "btPaginaAnterior";
             this.btPaginaAnterior.Size = new System.Drawing.Size(23, 23);
             this.btPaginaAnterior.TabIndex = 7;
@@ -273,7 +287,7 @@
             this.lbQuantidadePagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbQuantidadePagina.AutoSize = true;
             this.lbQuantidadePagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQuantidadePagina.Location = new System.Drawing.Point(676, 68);
+            this.lbQuantidadePagina.Location = new System.Drawing.Point(676, 81);
             this.lbQuantidadePagina.Name = "lbQuantidadePagina";
             this.lbQuantidadePagina.Size = new System.Drawing.Size(78, 13);
             this.lbQuantidadePagina.TabIndex = 49;
@@ -284,7 +298,7 @@
             this.cbQtdPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbQtdPagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbQtdPagina.FormattingEnabled = true;
-            this.cbQtdPagina.Location = new System.Drawing.Point(760, 65);
+            this.cbQtdPagina.Location = new System.Drawing.Point(760, 78);
             this.cbQtdPagina.Name = "cbQtdPagina";
             this.cbQtdPagina.Size = new System.Drawing.Size(81, 21);
             this.cbQtdPagina.TabIndex = 6;
@@ -384,7 +398,7 @@
             this.btPesquisar.FlatAppearance.BorderSize = 0;
             this.btPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btPesquisar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btPesquisar.Location = new System.Drawing.Point(852, 20);
+            this.btPesquisar.Location = new System.Drawing.Point(852, 33);
             this.btPesquisar.Name = "btPesquisar";
             this.btPesquisar.Size = new System.Drawing.Size(90, 23);
             this.btPesquisar.TabIndex = 5;
@@ -721,6 +735,82 @@
             this.btCadastrar.UseVisualStyleBackColor = false;
             this.btCadastrar.Click += new System.EventHandler(this.btCadastrar_Click);
             // 
+            // dtFiltroInicio
+            // 
+            this.dtFiltroInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtFiltroInicio.CustomFormat = "dd/MM/yyyy";
+            this.dtFiltroInicio.Enabled = false;
+            this.dtFiltroInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFiltroInicio.Location = new System.Drawing.Point(126, 78);
+            this.dtFiltroInicio.Name = "dtFiltroInicio";
+            this.dtFiltroInicio.Size = new System.Drawing.Size(97, 20);
+            this.dtFiltroInicio.TabIndex = 53;
+            // 
+            // dtFiltroFim
+            // 
+            this.dtFiltroFim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtFiltroFim.CustomFormat = "dd/MM/yyyy";
+            this.dtFiltroFim.Enabled = false;
+            this.dtFiltroFim.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFiltroFim.Location = new System.Drawing.Point(229, 78);
+            this.dtFiltroFim.Name = "dtFiltroFim";
+            this.dtFiltroFim.Size = new System.Drawing.Size(97, 20);
+            this.dtFiltroFim.TabIndex = 54;
+            // 
+            // cbFiltroStatus
+            // 
+            this.cbFiltroStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cbFiltroStatus.FormattingEnabled = true;
+            this.cbFiltroStatus.Location = new System.Drawing.Point(15, 78);
+            this.cbFiltroStatus.Name = "cbFiltroStatus";
+            this.cbFiltroStatus.Size = new System.Drawing.Size(105, 21);
+            this.cbFiltroStatus.TabIndex = 50;
+            // 
+            // lbFiltroStatus
+            // 
+            this.lbFiltroStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbFiltroStatus.AutoSize = true;
+            this.lbFiltroStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFiltroStatus.Location = new System.Drawing.Point(12, 62);
+            this.lbFiltroStatus.Name = "lbFiltroStatus";
+            this.lbFiltroStatus.Size = new System.Drawing.Size(37, 13);
+            this.lbFiltroStatus.TabIndex = 50;
+            this.lbFiltroStatus.Text = "Status";
+            // 
+            // ckFiltroDatas
+            // 
+            this.ckFiltroDatas.AutoSize = true;
+            this.ckFiltroDatas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckFiltroDatas.Location = new System.Drawing.Point(332, 80);
+            this.ckFiltroDatas.Name = "ckFiltroDatas";
+            this.ckFiltroDatas.Size = new System.Drawing.Size(49, 17);
+            this.ckFiltroDatas.TabIndex = 56;
+            this.ckFiltroDatas.Text = "Data";
+            this.ckFiltroDatas.UseVisualStyleBackColor = true;
+            this.ckFiltroDatas.CheckedChanged += new System.EventHandler(this.ckFiltroDatas_CheckedChanged);
+            // 
+            // lbFiltroDataInicio
+            // 
+            this.lbFiltroDataInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbFiltroDataInicio.AutoSize = true;
+            this.lbFiltroDataInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFiltroDataInicio.Location = new System.Drawing.Point(123, 62);
+            this.lbFiltroDataInicio.Name = "lbFiltroDataInicio";
+            this.lbFiltroDataInicio.Size = new System.Drawing.Size(34, 13);
+            this.lbFiltroDataInicio.TabIndex = 57;
+            this.lbFiltroDataInicio.Text = "Início";
+            // 
+            // lbFiltroDataFim
+            // 
+            this.lbFiltroDataFim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbFiltroDataFim.AutoSize = true;
+            this.lbFiltroDataFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFiltroDataFim.Location = new System.Drawing.Point(226, 62);
+            this.lbFiltroDataFim.Name = "lbFiltroDataFim";
+            this.lbFiltroDataFim.Size = new System.Drawing.Size(23, 13);
+            this.lbFiltroDataFim.TabIndex = 58;
+            this.lbFiltroDataFim.Text = "Fim";
+            // 
             // FormCadastroProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -806,5 +896,12 @@
         private System.Windows.Forms.ComboBox cbEditarStatus;
         private System.Windows.Forms.Label lbEditarCodigoR;
         private System.Windows.Forms.Label lbRditarCodigo;
+        private System.Windows.Forms.CheckBox ckFiltroDatas;
+        private System.Windows.Forms.Label lbFiltroStatus;
+        private System.Windows.Forms.ComboBox cbFiltroStatus;
+        private System.Windows.Forms.DateTimePicker dtFiltroFim;
+        private System.Windows.Forms.DateTimePicker dtFiltroInicio;
+        private System.Windows.Forms.Label lbFiltroDataFim;
+        private System.Windows.Forms.Label lbFiltroDataInicio;
     }
 }

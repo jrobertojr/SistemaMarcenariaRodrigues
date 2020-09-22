@@ -149,7 +149,9 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                     cbFiltroOperacao.SelectedIndex,
                     cbFiltroProduto.SelectedIndex,
                     txFiltroFornecedor.Text == "" ? null : txFiltroFornecedor.Text,
-                    cbFiltroStatus.SelectedIndex);
+                    cbFiltroStatus.SelectedIndex,
+                    ckFiltroDatas.Checked == true ? dtFiltroInicio.Value.ToString("yyyy-MM-dd") : null,
+                    ckFiltroDatas.Checked == true ? dtFiltroFim.Value.ToString("yyyy-MM-dd") : null);
 
                 totalDeRegistros = int.Parse(listaContagemSoma[0]);
 
@@ -159,6 +161,8 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                     int numeroDePaginas = calculoPaginas + 1;
                     lbPagina.Text = pagina + "/" + numeroDePaginas;
                 }
+                else
+                    dgvInventario.DataSource = null;
                 if (ultimaPosicao < totalDeRegistros)
                 {
                     dgvInventario.DataSource = inventarioAcoesDB.Select(
@@ -167,6 +171,8 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                     cbFiltroProduto.SelectedIndex,
                     txFiltroFornecedor.Text == "" ? null : txFiltroFornecedor.Text,
                     cbFiltroStatus.SelectedIndex,
+                    ckFiltroDatas.Checked == true ? dtFiltroInicio.Value.ToString("yyyy-MM-dd") : null,
+                    ckFiltroDatas.Checked == true ? dtFiltroFim.Value.ToString("yyyy-MM-dd") : null,
                     ordem,
                     ultimaPosicao,
                     int.Parse(cbQtdPagina.Text));
@@ -214,6 +220,20 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
             {
                 MessageBox.Show("Erro ao retornar inventario, consulte o desenvolvedor");
                 RegistraLog.Log("Erro ao retornar dados do iventario" + ex);
+            }
+        }
+
+        private void AtivaData()
+        {
+            if (ckFiltroDatas.Checked == true)
+            {
+                dtFiltroInicio.Enabled = true;
+                dtFiltroFim.Enabled = true;
+            }
+            else
+            {
+                dtFiltroInicio.Enabled = false;
+                dtFiltroFim.Enabled = false;
             }
         }
 
@@ -293,37 +313,37 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                 cbFiltroStatus.Items.Add("Ativo");
                 cbFiltroStatus.SelectedIndex = 0;
 
-                cbFiltroOperacao.DataSource = operacoesAcoesDB.Select(1, true);
+                cbFiltroOperacao.DataSource = operacoesAcoesDB.Select(1,true);
                 cbFiltroOperacao.DisplayMember = "Movimento";
                 cbFiltroOperacao.ValueMember = "Id";
                 cbFiltroOperacao.Enabled = true;
                 cbFiltroOperacao.SelectedIndex = 0;
 
-                cbEditarOperaco.DataSource = operacoesAcoesDB.Select(1, false);
+                cbEditarOperaco.DataSource = operacoesAcoesDB.Select(1,false);
                 cbEditarOperaco.DisplayMember = "Movimento";
                 cbEditarOperaco.ValueMember = "Id";
                 cbEditarOperaco.Enabled = true;
                 cbEditarOperaco.SelectedIndex = -1;
 
-                cbFiltroProduto.DataSource = produtosAcoesDB.Select(0, null, null, null, null, null);
+                cbFiltroProduto.DataSource = produtosAcoesDB.Select(0,null,null,null,null,1,null,null,null);
                 cbFiltroProduto.DisplayMember = "Produto";
                 cbFiltroProduto.ValueMember = "Id";
                 cbFiltroProduto.Enabled = true;
                 cbFiltroProduto.SelectedIndex = -1;
 
-                cbCadastroProduto.DataSource = produtosAcoesDB.Select(0, null, null, null, null, null);
+                cbCadastroProduto.DataSource = produtosAcoesDB.Select(0,null,null,null,null,1,null,null,null);
                 cbCadastroProduto.DisplayMember = "Produto";
                 cbCadastroProduto.ValueMember = "Id";
                 cbCadastroProduto.Enabled = true;
                 cbCadastroProduto.SelectedValue = 1;
 
-                cbEditarProduto.DataSource = produtosAcoesDB.Select(0, null, null, null, null, null);
+                cbEditarProduto.DataSource = produtosAcoesDB.Select(0,null,null,null,null,1,null,null,null);
                 cbEditarProduto.DisplayMember = "Produto";
                 cbEditarProduto.ValueMember = "Id";
                 cbEditarProduto.Enabled = true;
                 cbEditarProduto.SelectedIndex = -1;
 
-                cbCadastroOperacao.DataSource = operacoesAcoesDB.Select(1, false);
+                cbCadastroOperacao.DataSource = operacoesAcoesDB.Select(1,false);
                 cbCadastroOperacao.DisplayMember = "Movimento";
                 cbCadastroOperacao.ValueMember = "Id";
                 cbCadastroOperacao.Enabled = true;
@@ -445,6 +465,11 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && (e.KeyChar != '.'))
                 e.Handled = true;
+        }
+
+        private void ckFiltroDatas_CheckedChanged(object sender, EventArgs e)
+        {
+            AtivaData();
         }
     }
 }

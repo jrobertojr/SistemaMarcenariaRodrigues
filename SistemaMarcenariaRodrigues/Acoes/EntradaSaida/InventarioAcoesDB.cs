@@ -12,7 +12,8 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
     {
         private Conn Connection = new Conn();
 
-        public List<string> Count(int id, int operacao, int produto, string fornecedor, int status)
+        public List<string> Count(int id, int operacao, int produto, string fornecedor, int status, string dataInicio,
+            string dataFim)
         {
             try
             {
@@ -35,7 +36,8 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
                     query += $" AND fornecedor LIKE '%{produto}%' ";
                 if (status > 0)
                     query += $" AND status = {resultadoStatus} ";
-
+                if (dataInicio != null && dataFim != null)
+                    query += $" AND data BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
                 DataTable tabela = Connection.SqlDataTable(query);
 
                 for (int i = 0; i < tabela.Columns.Count; i++)
@@ -50,8 +52,8 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
             }
         }
 
-        public List<InventarioModel> Select(int id, int operacao, int produto, string fornecedor, int status, string ordem, int? ultimaPosicao,
-            int? numeroDeRegistos)
+        public List<InventarioModel> Select(int id, int operacao, int produto, string fornecedor, int status,
+            string dataInicio, string dataFim, string ordem, int? ultimaPosicao, int? numeroDeRegistos)
         {
             try
             {
@@ -91,6 +93,8 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
                     query += $" AND I.fornecedor LIKE '%{produto}%' ";
                 if (status > 0)
                     query += $" AND I.status = {resultadoStatus} ";
+                if (dataInicio != null && dataFim != null)
+                    query += $" AND I.data BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
                 if (ordem != "" && ordem != null)
                 {
                     if (ordem == "crescente")

@@ -189,7 +189,10 @@ namespace SistemaMarcenariaRodrigues.Forms.Produtos
                 ListaContagemSoma = produtosAcoesDB.Count(
                     txFiltroCodigo.Text == "" ? 0 : int.Parse(txFiltroCodigo.Text),
                     txFiltroProduto.Text == "" ? null : txFiltroProduto.Text,
-                    txFiltroFornecedor.Text == "" ? null : txFiltroFornecedor.Text);
+                    txFiltroFornecedor.Text == "" ? null : txFiltroFornecedor.Text,
+                    ckFiltroDatas.Checked == true ? dtFiltroInicio.Value.ToString("yyyy-MM-dd") : null,
+                    ckFiltroDatas.Checked == true ? dtFiltroFim.Value.ToString("yyyy-MM-dd") : null,
+                    cbFiltroStatus.SelectedIndex);
 
                 totalDeRegistros = int.Parse(ListaContagemSoma[0]);
 
@@ -199,12 +202,17 @@ namespace SistemaMarcenariaRodrigues.Forms.Produtos
                     int numeroDePaginas = calculoPaginas + 1;
                     lbPagina.Text = pagina + "/" + numeroDePaginas;
                 }
+                else
+                    dgvProdutos.DataSource = null;
                 if (ultimaPosicao < totalDeRegistros)
                 {
                     dgvProdutos.DataSource = produtosAcoesDB.Select(
                         txFiltroCodigo.Text == "" ? 0 : int.Parse(txFiltroCodigo.Text),
                         txFiltroProduto.Text == "" ? null : txFiltroProduto.Text,
                         txFiltroFornecedor.Text == "" ? null : txFiltroFornecedor.Text,
+                        ckFiltroDatas.Checked == true ? dtFiltroInicio.Value.ToString("yyyy-MM-dd") : null,
+                        ckFiltroDatas.Checked == true ? dtFiltroFim.Value.ToString("yyyy-MM-dd") : null,
+                        cbFiltroStatus.SelectedIndex,
                         ordem,
                         ultimaPosicao,
                         int.Parse(cbQtdPagina.Text));
@@ -331,6 +339,30 @@ namespace SistemaMarcenariaRodrigues.Forms.Produtos
             cbEditarStatus.Items.Add("Inativo");
             cbEditarStatus.Items.Add("Ativo");
             cbEditarStatus.SelectedIndex = 1;
+
+            cbFiltroStatus.Items.Add("Todos");
+            cbFiltroStatus.Items.Add("Ativo");
+            cbFiltroStatus.Items.Add("Inativo");
+            cbFiltroStatus.SelectedIndex = 0;
+        }
+
+        private void AtivaData()
+        {
+            if (ckFiltroDatas.Checked == true)
+            {
+                dtFiltroInicio.Enabled = true;
+                dtFiltroFim.Enabled = true;
+            }
+            else
+            {
+                dtFiltroInicio.Enabled = false;
+                dtFiltroFim.Enabled = false;
+            }
+        }
+
+        private void ckFiltroDatas_CheckedChanged(object sender, EventArgs e)
+        {
+            AtivaData();
         }
 
         private void txFiltroCodigo_KeyPress(object sender, KeyPressEventArgs e)
