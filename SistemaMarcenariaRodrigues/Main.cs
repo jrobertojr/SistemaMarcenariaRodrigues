@@ -89,5 +89,10 @@ namespace SistemaMarcenariaRodrigues
         {
             AbrirFormNoPainel<FormCadastroInventario>();
         }
+
+        private void btEstoque_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPainel<FormConsultaEstoque>();
+        }
     }
 }

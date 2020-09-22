@@ -41,6 +41,11 @@
             this.btAbrirCadastro = new System.Windows.Forms.Button();
             this.btAbrirEdicao = new System.Windows.Forms.Button();
             this.gbFiltro = new System.Windows.Forms.GroupBox();
+            this.lbFiltroDataFim = new System.Windows.Forms.Label();
+            this.lbFiltroDataInicio = new System.Windows.Forms.Label();
+            this.ckFiltroDatas = new System.Windows.Forms.CheckBox();
+            this.dtFiltroFim = new System.Windows.Forms.DateTimePicker();
+            this.dtFiltroInicio = new System.Windows.Forms.DateTimePicker();
             this.txFiltroId = new System.Windows.Forms.TextBox();
             this.lbFiltroId = new System.Windows.Forms.Label();
             this.lbFiltroStatus = new System.Windows.Forms.Label();
@@ -100,11 +105,6 @@
             this.txCadastroQuantidade = new System.Windows.Forms.TextBox();
             this.lbCadastroProduto = new System.Windows.Forms.Label();
             this.btCadastrar = new System.Windows.Forms.Button();
-            this.lbFiltroDataFim = new System.Windows.Forms.Label();
-            this.lbFiltroDataInicio = new System.Windows.Forms.Label();
-            this.ckFiltroDatas = new System.Windows.Forms.CheckBox();
-            this.dtFiltroFim = new System.Windows.Forms.DateTimePicker();
-            this.dtFiltroInicio = new System.Windows.Forms.DateTimePicker();
             this.panelBarraJanela.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
@@ -309,6 +309,65 @@
             this.gbFiltro.TabIndex = 11;
             this.gbFiltro.TabStop = false;
             this.gbFiltro.Text = "Filtro";
+            // 
+            // lbFiltroDataFim
+            // 
+            this.lbFiltroDataFim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbFiltroDataFim.AutoSize = true;
+            this.lbFiltroDataFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFiltroDataFim.ForeColor = System.Drawing.Color.Black;
+            this.lbFiltroDataFim.Location = new System.Drawing.Point(305, 58);
+            this.lbFiltroDataFim.Name = "lbFiltroDataFim";
+            this.lbFiltroDataFim.Size = new System.Drawing.Size(23, 13);
+            this.lbFiltroDataFim.TabIndex = 67;
+            this.lbFiltroDataFim.Text = "Fim";
+            // 
+            // lbFiltroDataInicio
+            // 
+            this.lbFiltroDataInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbFiltroDataInicio.AutoSize = true;
+            this.lbFiltroDataInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFiltroDataInicio.ForeColor = System.Drawing.Color.Black;
+            this.lbFiltroDataInicio.Location = new System.Drawing.Point(202, 58);
+            this.lbFiltroDataInicio.Name = "lbFiltroDataInicio";
+            this.lbFiltroDataInicio.Size = new System.Drawing.Size(34, 13);
+            this.lbFiltroDataInicio.TabIndex = 66;
+            this.lbFiltroDataInicio.Text = "Início";
+            // 
+            // ckFiltroDatas
+            // 
+            this.ckFiltroDatas.AutoSize = true;
+            this.ckFiltroDatas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckFiltroDatas.ForeColor = System.Drawing.Color.Black;
+            this.ckFiltroDatas.Location = new System.Drawing.Point(411, 76);
+            this.ckFiltroDatas.Name = "ckFiltroDatas";
+            this.ckFiltroDatas.Size = new System.Drawing.Size(49, 17);
+            this.ckFiltroDatas.TabIndex = 65;
+            this.ckFiltroDatas.Text = "Data";
+            this.ckFiltroDatas.UseVisualStyleBackColor = true;
+            this.ckFiltroDatas.CheckedChanged += new System.EventHandler(this.ckFiltroDatas_CheckedChanged);
+            // 
+            // dtFiltroFim
+            // 
+            this.dtFiltroFim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtFiltroFim.CustomFormat = "dd/MM/yyyy";
+            this.dtFiltroFim.Enabled = false;
+            this.dtFiltroFim.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFiltroFim.Location = new System.Drawing.Point(308, 74);
+            this.dtFiltroFim.Name = "dtFiltroFim";
+            this.dtFiltroFim.Size = new System.Drawing.Size(97, 20);
+            this.dtFiltroFim.TabIndex = 64;
+            // 
+            // dtFiltroInicio
+            // 
+            this.dtFiltroInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtFiltroInicio.CustomFormat = "dd/MM/yyyy";
+            this.dtFiltroInicio.Enabled = false;
+            this.dtFiltroInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFiltroInicio.Location = new System.Drawing.Point(205, 74);
+            this.dtFiltroInicio.Name = "dtFiltroInicio";
+            this.dtFiltroInicio.Size = new System.Drawing.Size(97, 20);
+            this.dtFiltroInicio.TabIndex = 63;
             // 
             // txFiltroId
             // 
@@ -961,73 +1020,15 @@
             this.btCadastrar.UseVisualStyleBackColor = false;
             this.btCadastrar.Click += new System.EventHandler(this.btCadastrar_Click);
             // 
-            // lbFiltroDataFim
-            // 
-            this.lbFiltroDataFim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbFiltroDataFim.AutoSize = true;
-            this.lbFiltroDataFim.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFiltroDataFim.ForeColor = System.Drawing.Color.Black;
-            this.lbFiltroDataFim.Location = new System.Drawing.Point(305, 58);
-            this.lbFiltroDataFim.Name = "lbFiltroDataFim";
-            this.lbFiltroDataFim.Size = new System.Drawing.Size(23, 13);
-            this.lbFiltroDataFim.TabIndex = 67;
-            this.lbFiltroDataFim.Text = "Fim";
-            // 
-            // lbFiltroDataInicio
-            // 
-            this.lbFiltroDataInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbFiltroDataInicio.AutoSize = true;
-            this.lbFiltroDataInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFiltroDataInicio.ForeColor = System.Drawing.Color.Black;
-            this.lbFiltroDataInicio.Location = new System.Drawing.Point(202, 58);
-            this.lbFiltroDataInicio.Name = "lbFiltroDataInicio";
-            this.lbFiltroDataInicio.Size = new System.Drawing.Size(34, 13);
-            this.lbFiltroDataInicio.TabIndex = 66;
-            this.lbFiltroDataInicio.Text = "Início";
-            // 
-            // ckFiltroDatas
-            // 
-            this.ckFiltroDatas.AutoSize = true;
-            this.ckFiltroDatas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckFiltroDatas.ForeColor = System.Drawing.Color.Black;
-            this.ckFiltroDatas.Location = new System.Drawing.Point(411, 76);
-            this.ckFiltroDatas.Name = "ckFiltroDatas";
-            this.ckFiltroDatas.Size = new System.Drawing.Size(49, 17);
-            this.ckFiltroDatas.TabIndex = 65;
-            this.ckFiltroDatas.Text = "Data";
-            this.ckFiltroDatas.UseVisualStyleBackColor = true;
-            this.ckFiltroDatas.CheckedChanged += new System.EventHandler(this.ckFiltroDatas_CheckedChanged);
-            // 
-            // dtFiltroFim
-            // 
-            this.dtFiltroFim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtFiltroFim.CustomFormat = "dd/MM/yyyy";
-            this.dtFiltroFim.Enabled = false;
-            this.dtFiltroFim.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFiltroFim.Location = new System.Drawing.Point(308, 74);
-            this.dtFiltroFim.Name = "dtFiltroFim";
-            this.dtFiltroFim.Size = new System.Drawing.Size(97, 20);
-            this.dtFiltroFim.TabIndex = 64;
-            // 
-            // dtFiltroInicio
-            // 
-            this.dtFiltroInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtFiltroInicio.CustomFormat = "dd/MM/yyyy";
-            this.dtFiltroInicio.Enabled = false;
-            this.dtFiltroInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFiltroInicio.Location = new System.Drawing.Point(205, 74);
-            this.dtFiltroInicio.Name = "dtFiltroInicio";
-            this.dtFiltroInicio.Size = new System.Drawing.Size(97, 20);
-            this.dtFiltroInicio.TabIndex = 63;
-            // 
             // FormCadastroInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(968, 550);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelBarraJanela);
-            this.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCadastroInventario";
             this.Text = "FormCadastroInventario";

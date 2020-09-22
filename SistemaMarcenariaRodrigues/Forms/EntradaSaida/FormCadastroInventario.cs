@@ -183,11 +183,11 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                         dgvInventario.Columns["NomeProduto"].HeaderText = "Produto";
                         dgvInventario.Columns["NomeOperacao"].HeaderText = "Operação";
                         dgvInventario.Columns["Quantidade"].HeaderText = "Quantidade";
-                        dgvInventario.Columns["ValorEntrada"].HeaderText = "Valor de Entrada";
+                        dgvInventario.Columns["ValorEntrada"].HeaderText = "Valor";
                         dgvInventario.Columns["ValorTotal"].HeaderText = "Valor Total";
                         dgvInventario.Columns["Serie"].HeaderText = "Série";
                         dgvInventario.Columns["NotaFiscal"].HeaderText = "Nota Fiscal";
-                        dgvInventario.Columns["Fornecedor"].HeaderText = "Fornecedor";
+                        dgvInventario.Columns["Fornecedor"].HeaderText = "Fornecedor / Cliente";
                         dgvInventario.Columns["Seq"].HeaderText = "Seq";
                         dgvInventario.Columns["Complemento"].HeaderText = "Complemento";
                         dgvInventario.Columns["Status"].HeaderText = "Status";

@@ -116,6 +116,7 @@
             this.btEstoque.TabIndex = 2;
             this.btEstoque.Text = "ESTOQUE";
             this.btEstoque.UseVisualStyleBackColor = true;
+            this.btEstoque.Click += new System.EventHandler(this.btEstoque_Click);
             // 
             // btCadastroInventario
             // 
