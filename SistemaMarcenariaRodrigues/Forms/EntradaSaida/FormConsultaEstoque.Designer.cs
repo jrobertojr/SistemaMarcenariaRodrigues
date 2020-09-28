@@ -37,6 +37,7 @@
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.dgvEstoque = new System.Windows.Forms.DataGridView();
             this.gbPreco = new System.Windows.Forms.GroupBox();
+            this.lbRodapeVTResultado = new System.Windows.Forms.Label();
             this.btExportar = new System.Windows.Forms.Button();
             this.btImprimir = new System.Windows.Forms.Button();
             this.gbFiltro = new System.Windows.Forms.GroupBox();
@@ -56,8 +57,9 @@
             this.lbQuantidadePagina = new System.Windows.Forms.Label();
             this.cbQtdPagina = new System.Windows.Forms.ComboBox();
             this.btPesquisar = new System.Windows.Forms.Button();
-            this.lbRodapeValorTotal = new System.Windows.Forms.Label();
-            this.lbRodapeVTResultado = new System.Windows.Forms.Label();
+            this.lbInfValorTotal = new System.Windows.Forms.Label();
+            this.lbInfQuantidade = new System.Windows.Forms.Label();
+            this.lbRodapeQTResultado = new System.Windows.Forms.Label();
             this.panelBarraJanela.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstoque)).BeginInit();
@@ -174,8 +176,10 @@
             // gbPreco
             // 
             this.gbPreco.BackColor = System.Drawing.Color.LightGray;
+            this.gbPreco.Controls.Add(this.lbRodapeQTResultado);
+            this.gbPreco.Controls.Add(this.lbInfQuantidade);
+            this.gbPreco.Controls.Add(this.lbInfValorTotal);
             this.gbPreco.Controls.Add(this.lbRodapeVTResultado);
-            this.gbPreco.Controls.Add(this.lbRodapeValorTotal);
             this.gbPreco.Controls.Add(this.btExportar);
             this.gbPreco.Controls.Add(this.btImprimir);
             this.gbPreco.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -185,6 +189,17 @@
             this.gbPreco.Size = new System.Drawing.Size(960, 36);
             this.gbPreco.TabIndex = 13;
             this.gbPreco.TabStop = false;
+            // 
+            // lbRodapeVTResultado
+            // 
+            this.lbRodapeVTResultado.AutoSize = true;
+            this.lbRodapeVTResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRodapeVTResultado.Location = new System.Drawing.Point(246, 15);
+            this.lbRodapeVTResultado.Name = "lbRodapeVTResultado";
+            this.lbRodapeVTResultado.Size = new System.Drawing.Size(69, 13);
+            this.lbRodapeVTResultado.TabIndex = 70;
+            this.lbRodapeVTResultado.Text = "Valor Total";
+            this.lbRodapeVTResultado.Visible = false;
             // 
             // btExportar
             // 
@@ -428,26 +443,38 @@
             this.btPesquisar.UseVisualStyleBackColor = false;
             this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
             // 
-            // lbRodapeValorTotal
+            // lbInfValorTotal
             // 
-            this.lbRodapeValorTotal.AutoSize = true;
-            this.lbRodapeValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRodapeValorTotal.Location = new System.Drawing.Point(12, 14);
-            this.lbRodapeValorTotal.Name = "lbRodapeValorTotal";
-            this.lbRodapeValorTotal.Size = new System.Drawing.Size(61, 13);
-            this.lbRodapeValorTotal.TabIndex = 69;
-            this.lbRodapeValorTotal.Text = "Valor Total:";
+            this.lbInfValorTotal.AutoSize = true;
+            this.lbInfValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfValorTotal.Location = new System.Drawing.Point(182, 15);
+            this.lbInfValorTotal.Name = "lbInfValorTotal";
+            this.lbInfValorTotal.Size = new System.Drawing.Size(61, 13);
+            this.lbInfValorTotal.TabIndex = 71;
+            this.lbInfValorTotal.Text = "Valor Total:";
+            this.lbInfValorTotal.Visible = false;
             // 
-            // lbRodapeVTResultado
+            // lbInfQuantidade
             // 
-            this.lbRodapeVTResultado.AutoSize = true;
-            this.lbRodapeVTResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRodapeVTResultado.Location = new System.Drawing.Point(79, 14);
-            this.lbRodapeVTResultado.Name = "lbRodapeVTResultado";
-            this.lbRodapeVTResultado.Size = new System.Drawing.Size(51, 13);
-            this.lbRodapeVTResultado.TabIndex = 70;
-            this.lbRodapeVTResultado.Text = "Produto";
-            this.lbRodapeVTResultado.Visible = false;
+            this.lbInfQuantidade.AutoSize = true;
+            this.lbInfQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfQuantidade.Location = new System.Drawing.Point(6, 15);
+            this.lbInfQuantidade.Name = "lbInfQuantidade";
+            this.lbInfQuantidade.Size = new System.Drawing.Size(92, 13);
+            this.lbInfQuantidade.TabIndex = 72;
+            this.lbInfQuantidade.Text = "Quantidade Total:";
+            this.lbInfQuantidade.Visible = false;
+            // 
+            // lbRodapeQTResultado
+            // 
+            this.lbRodapeQTResultado.AutoSize = true;
+            this.lbRodapeQTResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRodapeQTResultado.Location = new System.Drawing.Point(104, 15);
+            this.lbRodapeQTResultado.Name = "lbRodapeQTResultado";
+            this.lbRodapeQTResultado.Size = new System.Drawing.Size(72, 13);
+            this.lbRodapeQTResultado.TabIndex = 73;
+            this.lbRodapeQTResultado.Text = "Quantidade";
+            this.lbRodapeQTResultado.Visible = false;
             // 
             // FormConsultaEstoque
             // 
@@ -504,6 +531,8 @@
         private System.Windows.Forms.Button btImprimir;
         private System.Windows.Forms.DataGridView dgvEstoque;
         private System.Windows.Forms.Label lbRodapeVTResultado;
-        private System.Windows.Forms.Label lbRodapeValorTotal;
+        private System.Windows.Forms.Label lbRodapeQTResultado;
+        private System.Windows.Forms.Label lbInfQuantidade;
+        private System.Windows.Forms.Label lbInfValorTotal;
     }
 }

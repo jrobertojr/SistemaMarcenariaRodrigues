@@ -5,13 +5,7 @@ using SistemaMarcenariaRodrigues.Log;
 using SistemaMarcenariaRodrigues.Model.Produtos;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
@@ -202,13 +196,23 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
 
             if(dgvEstoque.Rows.Count > 0)
             {
+                lbInfValorTotal.Visible = true;
                 lbRodapeVTResultado.Visible = true;
                 lbRodapeVTResultado.Text = dgvEstoque.Rows[dgvEstoque.Rows.Count - 1].Cells["ValorTotal"].Value.ToString();
+
+                lbInfQuantidade.Visible = true;
+                lbRodapeQTResultado.Visible = true;
+                lbRodapeQTResultado.Text = dgvEstoque.Rows[dgvEstoque.Rows.Count - 1].Cells["QuantidadeTotal"].Value.ToString();
             }
             else
             {
+                lbInfValorTotal.Visible = false;
                 lbRodapeVTResultado.Visible = false;
                 lbRodapeVTResultado.Text = "";
+
+                lbInfQuantidade.Visible = false;
+                lbRodapeQTResultado.Visible = false;
+                lbRodapeQTResultado.Text = "";
             }
 
         }

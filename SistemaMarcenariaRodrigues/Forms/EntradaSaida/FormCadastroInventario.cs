@@ -6,7 +6,6 @@ using SistemaMarcenariaRodrigues.Model;
 using SistemaMarcenariaRodrigues.Model.Produtos;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -91,6 +90,7 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
         {
             gbEditar.Hide();
             gbCadastro.Show();
+            AcceptButton = btCadastrar;
         }
 
         private void btAbrirEdicao_Click(object sender, EventArgs e)
@@ -99,6 +99,8 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
             gbEditar.Show();
             if(dgvInventario.DataSource != null)
                 AlimentaEditar();
+
+            AcceptButton = btCadastrar;
         }
 
         private void AlimentaEditar()
@@ -150,8 +152,8 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
 
                 listaContagemSoma = inventarioAcoesDB.Count(
                     txFiltroId.Text == "" ? 0 : int.Parse(txFiltroId.Text),
-                    cbFiltroOperacao.SelectedIndex,
-                    cbFiltroProduto.SelectedIndex,
+                    (int)cbFiltroOperacao.SelectedValue,
+                    (int)cbFiltroProduto.SelectedValue,
                     txFiltroFornecedor.Text == "" ? null : txFiltroFornecedor.Text,
                     cbFiltroStatus.SelectedIndex,
                     ckFiltroDatas.Checked == true ? dtFiltroInicio.Value.ToString("yyyy-MM-dd") : null,
@@ -171,8 +173,8 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                 {
                     dgvInventario.DataSource = inventarioAcoesDB.Select(
                     txFiltroId.Text == "" ? 0 : int.Parse(txFiltroId.Text),
-                    cbFiltroOperacao.SelectedIndex,
-                    cbFiltroProduto.SelectedIndex,
+                    (int)cbFiltroOperacao.SelectedValue,
+                    (int)cbFiltroProduto.SelectedValue,
                     txFiltroFornecedor.Text == "" ? null : txFiltroFornecedor.Text,
                     cbFiltroStatus.SelectedIndex,
                     ckFiltroDatas.Checked == true ? dtFiltroInicio.Value.ToString("yyyy-MM-dd") : null,
@@ -357,6 +359,8 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                 cbCadastroOperacao.DisplayMember = "Movimento";
                 cbCadastroOperacao.ValueMember = "Id";
                 cbCadastroOperacao.Enabled = true;
+
+                AcceptButton = btPesquisar;
             }
             catch (Exception ex)
             {
@@ -441,11 +445,13 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
         private void btEsconderCadastro_Click(object sender, EventArgs e)
         {
             gbCadastro.Hide();
+            AcceptButton = btPesquisar;
         }
 
         private void btEsconderEditar_Click(object sender, EventArgs e)
         {
             gbEditar.Hide();
+            AcceptButton = btPesquisar;
         }
 
         private void dgvInventario_Click(object sender, EventArgs e)
@@ -487,6 +493,63 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
                 e.Handled = true;
+        }
+
+        private void cbCadastroProduto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCadastroProduto.DataSource != null)
+                AlimentaCadastroSaida(cbCadastroOperacao);
+        }
+
+        private void cbCadastroOperacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCadastroOperacao.DataSource != null)
+                AlimentaCadastroSaida(cbCadastroProduto);
+        }
+
+        private void AlimentaCadastroSaida(ComboBox comboBox)
+        {
+            if (comboBox.DataSource != null)
+            {
+                if (cbCadastroOperacao.SelectedValue.ToString() == "2")
+                {
+                    InventarioAcoesDB inventarioAcoesDB = new InventarioAcoesDB();
+
+                    List<InventarioModel> inventario = inventarioAcoesDB.Select(0, 1,
+                        (int)cbCadastroProduto.SelectedValue, null, 0, null, null, "decrescente", null, null);
+
+                    if (inventario.Count > 0)
+                    {
+                        txCadastroValorUnitario.Enabled = false;
+                        txCadastroNotaFiscal.Enabled = false;
+                        txCadastroSerie.Enabled = false;
+
+                        txCadastroValorUnitario.Text = inventario[0].ValorEntrada.ToString().Trim('R', '$', ' ').Replace(".", "").Replace(",", ".");
+                        txCadastroNotaFiscal.Text = inventario[0].NotaFiscal;
+                        txCadastroSerie.Text = inventario[0].Serie;
+                    }
+                    else
+                    {
+                        txCadastroValorUnitario.Enabled = true;
+                        txCadastroNotaFiscal.Enabled = true;
+                        txCadastroSerie.Enabled = true;
+
+                        txCadastroValorUnitario.Text = "";
+                        txCadastroNotaFiscal.Text = "";
+                        txCadastroSerie.Text = "";
+                    }
+                }
+                else
+                {
+                    txCadastroValorUnitario.Enabled = true;
+                    txCadastroNotaFiscal.Enabled = true;
+                    txCadastroSerie.Enabled = true;
+
+                    txCadastroValorUnitario.Text = "";
+                    txCadastroNotaFiscal.Text = "";
+                    txCadastroSerie.Text = "";
+                }
+            }
         }
     }
 }

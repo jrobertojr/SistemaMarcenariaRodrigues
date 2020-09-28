@@ -644,6 +644,7 @@
             this.txEditarUsuario.Name = "txEditarUsuario";
             this.txEditarUsuario.Size = new System.Drawing.Size(208, 20);
             this.txEditarUsuario.TabIndex = 16;
+            this.txEditarUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txEditarUsuario_KeyPress);
             // 
             // lbEditarUsuario
             // 
@@ -821,6 +822,7 @@
             this.txCadastroUsuario.Name = "txCadastroUsuario";
             this.txCadastroUsuario.Size = new System.Drawing.Size(208, 20);
             this.txCadastroUsuario.TabIndex = 10;
+            this.txCadastroUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txCadastroUsuario_KeyPress);
             // 
             // lbCadastroUsuario
             // 

@@ -380,22 +380,35 @@ namespace SistemaMarcenariaRodrigues.Forms.Usuarios
 
         private void btEditar_Click(object sender, EventArgs e)
         {
-            if (VerificaEmail(txEditarEmail.Text) || txEditarEmail.Text == "")
+            try
             {
-                UsuarioAcoesDB usuarioAcoesDB = new UsuarioAcoesDB();
-                MessageBox.Show(usuarioAcoesDB.Upgrade(
-                    (int)dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells["Id"].Value,
-                    txEditarUsuario.Text == "" ? null : txEditarUsuario.Text,
-                    txEditarNome.Text == "" ? null : txEditarNome.Text,
-                    txEditarSenha.Text == "" ? null : txEditarSenha.Text,
-                    txEditarEmail.Text == "" ? null : txEditarEmail.Text,
-                    (int)cbEditarPrivilegio.SelectedValue,
-                    cbEditarStatus.SelectedIndex));
+                if (dgvUsuarios.DataSource != null)
+                {
+                    if (VerificaEmail(txEditarEmail.Text) || txEditarEmail.Text == "")
+                    {
+                        UsuarioAcoesDB usuarioAcoesDB = new UsuarioAcoesDB();
+                        MessageBox.Show(usuarioAcoesDB.Upgrade(
+                            (int)dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells["Id"].Value,
+                            txEditarUsuario.Text == "" ? null : txEditarUsuario.Text,
+                            txEditarNome.Text == "" ? null : txEditarNome.Text,
+                            txEditarSenha.Text == "" ? null : txEditarSenha.Text,
+                            txEditarEmail.Text == "" ? null : txEditarEmail.Text,
+                            (int)cbEditarPrivilegio.SelectedValue,
+                            cbEditarStatus.SelectedIndex));
 
-                AlimentaDGV();
+                        AlimentaDGV();
+                    }
+                    else
+                        MessageBox.Show("E-Mail invalido");
+                }
+                else
+                    MessageBox.Show("Não á usuario selecionado");
             }
-            else
-                MessageBox.Show("E-Mail invalido");
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar Usuario, contate o desenvolvedor");
+                RegistraLog.Log($"Erro ao clicar no botão editar -- {ex}");
+            }
         }
 
         private void dgvUsuarios_Click(object sender, EventArgs e)
@@ -473,6 +486,18 @@ namespace SistemaMarcenariaRodrigues.Forms.Usuarios
                 RegistraLog.Log($"Erro ao validar e-mail -- {ex}");
                 return false;
             }
+        }
+
+        private void txCadastroUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+                e.Handled = true;
+        }
+
+        private void txEditarUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+                e.Handled = true;
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBarraJanela = new System.Windows.Forms.Panel();
             this.btMinimizar = new System.Windows.Forms.Button();
             this.btMaximizar = new System.Windows.Forms.Button();
@@ -216,14 +216,14 @@
             // 
             this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInventario.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventario.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInventario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInventario.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvInventario.Location = new System.Drawing.Point(0, 334);
@@ -356,7 +356,7 @@
             this.dtFiltroFim.Location = new System.Drawing.Point(308, 74);
             this.dtFiltroFim.Name = "dtFiltroFim";
             this.dtFiltroFim.Size = new System.Drawing.Size(97, 20);
-            this.dtFiltroFim.TabIndex = 64;
+            this.dtFiltroFim.TabIndex = 7;
             // 
             // dtFiltroInicio
             // 
@@ -367,14 +367,14 @@
             this.dtFiltroInicio.Location = new System.Drawing.Point(205, 74);
             this.dtFiltroInicio.Name = "dtFiltroInicio";
             this.dtFiltroInicio.Size = new System.Drawing.Size(97, 20);
-            this.dtFiltroInicio.TabIndex = 63;
+            this.dtFiltroInicio.TabIndex = 6;
             // 
             // txFiltroId
             // 
             this.txFiltroId.Location = new System.Drawing.Point(15, 34);
             this.txFiltroId.Name = "txFiltroId";
             this.txFiltroId.Size = new System.Drawing.Size(89, 20);
-            this.txFiltroId.TabIndex = 61;
+            this.txFiltroId.TabIndex = 0;
             this.txFiltroId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txFiltroId_KeyPress);
             // 
             // lbFiltroId
@@ -405,7 +405,7 @@
             this.cbFiltroStatus.Location = new System.Drawing.Point(15, 74);
             this.cbFiltroStatus.Name = "cbFiltroStatus";
             this.cbFiltroStatus.Size = new System.Drawing.Size(89, 21);
-            this.cbFiltroStatus.TabIndex = 59;
+            this.cbFiltroStatus.TabIndex = 4;
             // 
             // lbFiltroOperacao
             // 
@@ -424,7 +424,7 @@
             this.cbFiltroOperacao.Location = new System.Drawing.Point(110, 74);
             this.cbFiltroOperacao.Name = "cbFiltroOperacao";
             this.cbFiltroOperacao.Size = new System.Drawing.Size(89, 21);
-            this.cbFiltroOperacao.TabIndex = 57;
+            this.cbFiltroOperacao.TabIndex = 5;
             // 
             // lbFiltroFornecedor
             // 
@@ -442,7 +442,7 @@
             this.txFiltroFornecedor.Location = new System.Drawing.Point(324, 33);
             this.txFiltroFornecedor.Name = "txFiltroFornecedor";
             this.txFiltroFornecedor.Size = new System.Drawing.Size(213, 20);
-            this.txFiltroFornecedor.TabIndex = 55;
+            this.txFiltroFornecedor.TabIndex = 3;
             // 
             // cbFiltroProduto
             // 
@@ -450,7 +450,7 @@
             this.cbFiltroProduto.Location = new System.Drawing.Point(110, 33);
             this.cbFiltroProduto.Name = "cbFiltroProduto";
             this.cbFiltroProduto.Size = new System.Drawing.Size(208, 21);
-            this.cbFiltroProduto.TabIndex = 54;
+            this.cbFiltroProduto.TabIndex = 2;
             // 
             // lbFiltroProduto
             // 
@@ -549,7 +549,7 @@
             this.rbFiltroDecrescente.Location = new System.Drawing.Point(118, 15);
             this.rbFiltroDecrescente.Name = "rbFiltroDecrescente";
             this.rbFiltroDecrescente.Size = new System.Drawing.Size(86, 17);
-            this.rbFiltroDecrescente.TabIndex = 4;
+            this.rbFiltroDecrescente.TabIndex = 9;
             this.rbFiltroDecrescente.Text = "Decrescente";
             this.rbFiltroDecrescente.UseVisualStyleBackColor = true;
             // 
@@ -562,7 +562,7 @@
             this.rbFiltroCrescente.Location = new System.Drawing.Point(17, 15);
             this.rbFiltroCrescente.Name = "rbFiltroCrescente";
             this.rbFiltroCrescente.Size = new System.Drawing.Size(73, 17);
-            this.rbFiltroCrescente.TabIndex = 3;
+            this.rbFiltroCrescente.TabIndex = 8;
             this.rbFiltroCrescente.TabStop = true;
             this.rbFiltroCrescente.Text = "Crescente";
             this.rbFiltroCrescente.UseVisualStyleBackColor = true;
@@ -632,7 +632,7 @@
             this.cbEditarStatus.Location = new System.Drawing.Point(543, 33);
             this.cbEditarStatus.Name = "cbEditarStatus";
             this.cbEditarStatus.Size = new System.Drawing.Size(89, 21);
-            this.cbEditarStatus.TabIndex = 61;
+            this.cbEditarStatus.TabIndex = 13;
             // 
             // lbEditarOperacao
             // 
@@ -651,7 +651,7 @@
             this.cbEditarOperaco.Location = new System.Drawing.Point(15, 33);
             this.cbEditarOperaco.Name = "cbEditarOperaco";
             this.cbEditarOperaco.Size = new System.Drawing.Size(89, 21);
-            this.cbEditarOperaco.TabIndex = 54;
+            this.cbEditarOperaco.TabIndex = 10;
             // 
             // lbEditarComplemento
             // 
@@ -669,7 +669,7 @@
             this.txEditarComplemento.Location = new System.Drawing.Point(451, 76);
             this.txEditarComplemento.Name = "txEditarComplemento";
             this.txEditarComplemento.Size = new System.Drawing.Size(181, 20);
-            this.txEditarComplemento.TabIndex = 52;
+            this.txEditarComplemento.TabIndex = 18;
             // 
             // lbEditarFornecedor
             // 
@@ -687,7 +687,7 @@
             this.txEditarFornecedor.Location = new System.Drawing.Point(324, 34);
             this.txEditarFornecedor.Name = "txEditarFornecedor";
             this.txEditarFornecedor.Size = new System.Drawing.Size(213, 20);
-            this.txEditarFornecedor.TabIndex = 50;
+            this.txEditarFornecedor.TabIndex = 12;
             // 
             // lbEditarNotaFiscal
             // 
@@ -705,7 +705,7 @@
             this.txEditarNotaFiscal.Location = new System.Drawing.Point(340, 76);
             this.txEditarNotaFiscal.Name = "txEditarNotaFiscal";
             this.txEditarNotaFiscal.Size = new System.Drawing.Size(105, 20);
-            this.txEditarNotaFiscal.TabIndex = 48;
+            this.txEditarNotaFiscal.TabIndex = 17;
             // 
             // lbEditarSerie
             // 
@@ -723,7 +723,7 @@
             this.txEditarSerie.Location = new System.Drawing.Point(229, 76);
             this.txEditarSerie.Name = "txEditarSerie";
             this.txEditarSerie.Size = new System.Drawing.Size(105, 20);
-            this.txEditarSerie.TabIndex = 46;
+            this.txEditarSerie.TabIndex = 16;
             // 
             // lbEditarValorUnitario
             // 
@@ -741,7 +741,7 @@
             this.txEditarValorUnitario.Location = new System.Drawing.Point(110, 76);
             this.txEditarValorUnitario.Name = "txEditarValorUnitario";
             this.txEditarValorUnitario.Size = new System.Drawing.Size(113, 20);
-            this.txEditarValorUnitario.TabIndex = 44;
+            this.txEditarValorUnitario.TabIndex = 15;
             this.txEditarValorUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txEditarValorUnitario_KeyPress);
             // 
             // cbEditarProduto
@@ -750,7 +750,7 @@
             this.cbEditarProduto.Location = new System.Drawing.Point(110, 33);
             this.cbEditarProduto.Name = "cbEditarProduto";
             this.cbEditarProduto.Size = new System.Drawing.Size(208, 21);
-            this.cbEditarProduto.TabIndex = 43;
+            this.cbEditarProduto.TabIndex = 11;
             // 
             // lbEditarQuantidade
             // 
@@ -768,7 +768,7 @@
             this.txEditarQuantidade.Location = new System.Drawing.Point(15, 76);
             this.txEditarQuantidade.Name = "txEditarQuantidade";
             this.txEditarQuantidade.Size = new System.Drawing.Size(89, 20);
-            this.txEditarQuantidade.TabIndex = 40;
+            this.txEditarQuantidade.TabIndex = 14;
             this.txEditarQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txEditarQuantidade_KeyPress);
             // 
             // lbEditarProduto
@@ -860,7 +860,8 @@
             this.cbCadastroOperacao.Location = new System.Drawing.Point(15, 39);
             this.cbCadastroOperacao.Name = "cbCadastroOperacao";
             this.cbCadastroOperacao.Size = new System.Drawing.Size(89, 21);
-            this.cbCadastroOperacao.TabIndex = 38;
+            this.cbCadastroOperacao.TabIndex = 19;
+            this.cbCadastroOperacao.SelectedIndexChanged += new System.EventHandler(this.cbCadastroOperacao_SelectedIndexChanged);
             // 
             // lbCadastroComplemento
             // 
@@ -878,7 +879,7 @@
             this.txCadastroComplemento.Location = new System.Drawing.Point(451, 82);
             this.txCadastroComplemento.Name = "txCadastroComplemento";
             this.txCadastroComplemento.Size = new System.Drawing.Size(175, 20);
-            this.txCadastroComplemento.TabIndex = 36;
+            this.txCadastroComplemento.TabIndex = 26;
             // 
             // lbCadastroFornecedor
             // 
@@ -896,7 +897,7 @@
             this.txCadastroFornecedor.Location = new System.Drawing.Point(324, 40);
             this.txCadastroFornecedor.Name = "txCadastroFornecedor";
             this.txCadastroFornecedor.Size = new System.Drawing.Size(213, 20);
-            this.txCadastroFornecedor.TabIndex = 34;
+            this.txCadastroFornecedor.TabIndex = 21;
             // 
             // lbCadastroNF
             // 
@@ -914,7 +915,7 @@
             this.txCadastroNotaFiscal.Location = new System.Drawing.Point(340, 82);
             this.txCadastroNotaFiscal.Name = "txCadastroNotaFiscal";
             this.txCadastroNotaFiscal.Size = new System.Drawing.Size(105, 20);
-            this.txCadastroNotaFiscal.TabIndex = 32;
+            this.txCadastroNotaFiscal.TabIndex = 25;
             // 
             // lbCadastroSerie
             // 
@@ -932,7 +933,7 @@
             this.txCadastroSerie.Location = new System.Drawing.Point(229, 82);
             this.txCadastroSerie.Name = "txCadastroSerie";
             this.txCadastroSerie.Size = new System.Drawing.Size(105, 20);
-            this.txCadastroSerie.TabIndex = 30;
+            this.txCadastroSerie.TabIndex = 24;
             // 
             // lbCadastroValorUnitario
             // 
@@ -950,7 +951,7 @@
             this.txCadastroValorUnitario.Location = new System.Drawing.Point(110, 82);
             this.txCadastroValorUnitario.Name = "txCadastroValorUnitario";
             this.txCadastroValorUnitario.Size = new System.Drawing.Size(113, 20);
-            this.txCadastroValorUnitario.TabIndex = 28;
+            this.txCadastroValorUnitario.TabIndex = 23;
             this.txCadastroValorUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txCadastroValorUnitario_KeyPress);
             // 
             // cbCadastroProduto
@@ -959,7 +960,8 @@
             this.cbCadastroProduto.Location = new System.Drawing.Point(110, 39);
             this.cbCadastroProduto.Name = "cbCadastroProduto";
             this.cbCadastroProduto.Size = new System.Drawing.Size(208, 21);
-            this.cbCadastroProduto.TabIndex = 27;
+            this.cbCadastroProduto.TabIndex = 20;
+            this.cbCadastroProduto.SelectedIndexChanged += new System.EventHandler(this.cbCadastroProduto_SelectedIndexChanged);
             // 
             // btEsconderCadastro
             // 
@@ -992,7 +994,7 @@
             this.txCadastroQuantidade.Location = new System.Drawing.Point(15, 82);
             this.txCadastroQuantidade.Name = "txCadastroQuantidade";
             this.txCadastroQuantidade.Size = new System.Drawing.Size(89, 20);
-            this.txCadastroQuantidade.TabIndex = 11;
+            this.txCadastroQuantidade.TabIndex = 22;
             this.txCadastroQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txCadastroQuantidade_KeyPress);
             // 
             // lbCadastroProduto
