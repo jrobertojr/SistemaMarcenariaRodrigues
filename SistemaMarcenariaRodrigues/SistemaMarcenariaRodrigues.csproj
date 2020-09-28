@@ -116,7 +116,9 @@
     <Compile Include="Acoes\EntradaSaida\InventarioAcoesDB.cs" />
     <Compile Include="Acoes\Operacoes\OperacoesAcoesDB.cs" />
     <Compile Include="Acoes\Produtos\ProdutosAcoesDB.cs" />
+    <Compile Include="Acoes\Usuario\PrivilegioAcoesDB.cs" />
     <Compile Include="Acoes\Usuario\UsuarioAcoesDB.cs" />
+    <Compile Include="Acoes\Usuario\UsuarioLoginAcoesDB.cs" />
     <Compile Include="Conexao\Conn.cs" />
     <Compile Include="Controle de Usuario\Session.cs" />
     <Compile Include="ControleUsuario\Session.cs" />
@@ -152,6 +154,12 @@
     <Compile Include="Forms\Produtos\FormCadastroProdutos.Designer.cs">
       <DependentUpon>FormCadastroProdutos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Usuarios\FormCadastroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Usuarios\FormCadastroUsuario.Designer.cs">
+      <DependentUpon>FormCadastroUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log\RegistraLog.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -162,6 +170,7 @@
     <Compile Include="Model\EstoqueModel.cs" />
     <Compile Include="Model\InventarioModel.cs" />
     <Compile Include="Model\OperacoesModel.cs" />
+    <Compile Include="Model\PrivilegioModel.cs" />
     <Compile Include="Model\ProdutosModel.cs" />
     <Compile Include="Model\UsuarioModel.cs" />
     <Compile Include="Program.cs" />
@@ -180,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produtos\FormCadastroProdutos.resx">
       <DependentUpon>FormCadastroProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Usuarios\FormCadastroUsuario.resx">
+      <DependentUpon>FormCadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

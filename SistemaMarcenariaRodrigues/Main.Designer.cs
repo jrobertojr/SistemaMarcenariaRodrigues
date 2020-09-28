@@ -37,16 +37,21 @@
             this.btCadastroInventario = new System.Windows.Forms.Button();
             this.panelMenuProduto = new System.Windows.Forms.Panel();
             this.btAdmTarefas = new System.Windows.Forms.Button();
+            this.btUsuario = new System.Windows.Forms.Button();
+            this.panelMenuUsuarios = new System.Windows.Forms.Panel();
+            this.btCadastroUsuario = new System.Windows.Forms.Button();
             this.panelMenuLogo = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             this.panelMenuEntradaSaida.SuspendLayout();
             this.panelMenuProduto.SuspendLayout();
+            this.panelMenuUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelMenu.Controls.Add(this.btUsuario);
             this.panelMenu.Controls.Add(this.btEntradaSaida);
             this.panelMenu.Controls.Add(this.btProdutos);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -83,6 +88,7 @@
             // 
             // panelDesktop
             // 
+            this.panelDesktop.Controls.Add(this.panelMenuUsuarios);
             this.panelDesktop.Controls.Add(this.panelMenuEntradaSaida);
             this.panelDesktop.Controls.Add(this.panelMenuProduto);
             this.panelDesktop.Controls.Add(this.panelMenuLogo);
@@ -155,6 +161,43 @@
             this.btAdmTarefas.UseVisualStyleBackColor = true;
             this.btAdmTarefas.Click += new System.EventHandler(this.btAdmTarefas_Click);
             // 
+            // btUsuario
+            // 
+            this.btUsuario.FlatAppearance.BorderSize = 0;
+            this.btUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btUsuario.Location = new System.Drawing.Point(236, 5);
+            this.btUsuario.Name = "btUsuario";
+            this.btUsuario.Size = new System.Drawing.Size(83, 23);
+            this.btUsuario.TabIndex = 2;
+            this.btUsuario.Text = "USUÁRIOS";
+            this.btUsuario.UseVisualStyleBackColor = true;
+            this.btUsuario.Click += new System.EventHandler(this.btUsuario_Click);
+            // 
+            // panelMenuUsuarios
+            // 
+            this.panelMenuUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelMenuUsuarios.Controls.Add(this.btCadastroUsuario);
+            this.panelMenuUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMenuUsuarios.Location = new System.Drawing.Point(0, 40);
+            this.panelMenuUsuarios.Name = "panelMenuUsuarios";
+            this.panelMenuUsuarios.Size = new System.Drawing.Size(942, 20);
+            this.panelMenuUsuarios.TabIndex = 5;
+            this.panelMenuUsuarios.Visible = false;
+            // 
+            // btCadastroUsuario
+            // 
+            this.btCadastroUsuario.FlatAppearance.BorderSize = 0;
+            this.btCadastroUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCadastroUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btCadastroUsuario.Location = new System.Drawing.Point(258, 0);
+            this.btCadastroUsuario.Name = "btCadastroUsuario";
+            this.btCadastroUsuario.Size = new System.Drawing.Size(154, 20);
+            this.btCadastroUsuario.TabIndex = 1;
+            this.btCadastroUsuario.Text = "CADASTRO DE USUÁRIO";
+            this.btCadastroUsuario.UseVisualStyleBackColor = true;
+            this.btCadastroUsuario.Click += new System.EventHandler(this.btCadastroUsuario_Click);
+            // 
             // panelMenuLogo
             // 
             this.panelMenuLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -186,6 +229,7 @@
             this.panelDesktop.ResumeLayout(false);
             this.panelMenuEntradaSaida.ResumeLayout(false);
             this.panelMenuProduto.ResumeLayout(false);
+            this.panelMenuUsuarios.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -202,6 +246,9 @@
         private System.Windows.Forms.Button btEstoque;
         private System.Windows.Forms.Button btCadastroInventario;
         private System.Windows.Forms.Panel panelMenuLogo;
+        private System.Windows.Forms.Button btUsuario;
+        private System.Windows.Forms.Panel panelMenuUsuarios;
+        private System.Windows.Forms.Button btCadastroUsuario;
     }
 }
 

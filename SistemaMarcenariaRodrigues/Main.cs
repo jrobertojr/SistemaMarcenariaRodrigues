@@ -1,14 +1,12 @@
-﻿using SistemaMarcenariaRodrigues.Forms.EntradaSaida;
+﻿using SistemaMarcenariaRodrigues.Acoes.Usuario;
+using SistemaMarcenariaRodrigues.Controle_de_Usuario;
+using SistemaMarcenariaRodrigues.Forms.EntradaSaida;
 using SistemaMarcenariaRodrigues.Forms.Produtos;
+using SistemaMarcenariaRodrigues.Forms.Usuarios;
 using SistemaMarcenariaRodrigues.Log;
+using SistemaMarcenariaRodrigues.Model.Usuario;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaMarcenariaRodrigues
@@ -18,6 +16,19 @@ namespace SistemaMarcenariaRodrigues
         public Main()
         {
             InitializeComponent();
+            ControleDeUsuario();
+        }
+
+        private void ControleDeUsuario()
+        {
+            UsuarioLoginAcoesDB usuarioLoginAcoesDB = new UsuarioLoginAcoesDB();
+            UsuarioModel usuarioModel = new UsuarioModel();
+            usuarioModel = usuarioLoginAcoesDB.Select(null, Session.Instance.UserID)[0];
+
+            if (usuarioModel.IdPrivilegio == 1)
+                btUsuario.Enabled = true;
+            else
+                btUsuario.Enabled = false;
         }
 
         private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -58,6 +69,7 @@ namespace SistemaMarcenariaRodrigues
         private void btProdutos_Click(object sender, EventArgs e)
         {
             panelMenuEntradaSaida.Hide();
+            panelMenuUsuarios.Hide();
 
             panelMenuProduto.Show();
         }
@@ -65,19 +77,30 @@ namespace SistemaMarcenariaRodrigues
         private void btEntradaSaida_Click(object sender, EventArgs e)
         {
             panelMenuProduto.Hide();
+            panelMenuUsuarios.Hide();
 
             panelMenuEntradaSaida.Show();
+        }
+
+        private void btUsuario_Click(object sender, EventArgs e)
+        {
+            panelMenuEntradaSaida.Hide();
+            panelMenuProduto.Hide();
+
+            panelMenuUsuarios.Show();
         }
 
         private void panelDeskTop_Click(object sender, EventArgs e)
         {
             panelMenuProduto.Hide();
             panelMenuEntradaSaida.Hide();
+            panelMenuUsuarios.Hide();
         }
         private void panelMenuLogo_Click(object sender, EventArgs e)
         {
             panelMenuProduto.Hide();
             panelMenuEntradaSaida.Hide();
+            panelMenuUsuarios.Hide();
         }
 
         private void btAdmTarefas_Click(object sender, EventArgs e)
@@ -93,6 +116,11 @@ namespace SistemaMarcenariaRodrigues
         private void btEstoque_Click(object sender, EventArgs e)
         {
             AbrirFormNoPainel<FormConsultaEstoque>();
+        }
+
+        private void btCadastroUsuario_Click(object sender, EventArgs e)
+        {
+            AbrirFormNoPainel<FormCadastroUsuario>();
         }
     }
 }

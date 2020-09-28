@@ -33,7 +33,7 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
                 if (status > 0)
                     query += $" AND status = {statusResultado} ";
                 if (dataInicio != null && dataFim != null)
-                    query += $" AND data BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
+                    query += $" AND DATE(data) BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
 
                 DataTable tabela = Connection.SqlDataTable(query);
 
@@ -78,7 +78,7 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
                 if (status > 0)
                     query += $" AND status = {statusResultado} ";
                 if (dataInicio != null && dataFim != null)
-                    query += $" AND data BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
+                    query += $" AND DATE(data) BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
                 if (ordem != "" && ordem != null)
                 {
                     if (ordem == "crescente")
@@ -118,8 +118,8 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
         {
             try
             {
-                if (produto == "" || dimensoes == "" || fornecedor == "" || detalhe == "")
-                    return "Todos os campos devem ser prenchido";
+                if (produto == "" || dimensoes == "" || fornecedor == "")
+                    return "Produto, Dimensões e Fornecedor são obrigatórios";
 
                 string query = $@"
                     INSERT 
@@ -153,8 +153,8 @@ namespace SistemaMarcenariaRodrigues.Acoes.Produtos
         {
             try
             {
-                if (id <= 0 || produto == "" || dimensoes == "" || fornecedor == "" || detalhe == "")
-                    return "Todos os campos devem ser prenchido";
+                if (id <= 0 || produto == "" || dimensoes == "" || fornecedor == "")
+                    return "Produto, Dimensões e Fornecedor são obrigatórios";
 
                 string query = $@"
                     UPDATE 

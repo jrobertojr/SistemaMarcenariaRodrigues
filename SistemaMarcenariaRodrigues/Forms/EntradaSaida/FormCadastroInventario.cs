@@ -2,8 +2,11 @@
 using SistemaMarcenariaRodrigues.Acoes.Operacoes;
 using SistemaMarcenariaRodrigues.Acoes.Produtos;
 using SistemaMarcenariaRodrigues.Log;
+using SistemaMarcenariaRodrigues.Model;
+using SistemaMarcenariaRodrigues.Model.Produtos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -94,7 +97,8 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
         {
             gbCadastro.Hide();
             gbEditar.Show();
-            AlimentaEditar();
+            if(dgvInventario.DataSource != null)
+                AlimentaEditar();
         }
 
         private void AlimentaEditar()
@@ -298,6 +302,8 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
             {
                 OperacoesAcoesDB operacoesAcoesDB = new OperacoesAcoesDB();
                 ProdutosAcoesDB produtosAcoesDB = new ProdutosAcoesDB();
+                List<ProdutosModel> produtosModels = new List<ProdutosModel>();
+
 
                 cbQtdPagina.Items.Add(10);
                 cbQtdPagina.Items.Add(50);
@@ -313,7 +319,7 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                 cbFiltroStatus.Items.Add("Ativo");
                 cbFiltroStatus.SelectedIndex = 0;
 
-                cbFiltroOperacao.DataSource = operacoesAcoesDB.Select(1,true);
+                cbFiltroOperacao.DataSource = operacoesAcoesDB.Select(1, true);
                 cbFiltroOperacao.DisplayMember = "Movimento";
                 cbFiltroOperacao.ValueMember = "Id";
                 cbFiltroOperacao.Enabled = true;
@@ -325,11 +331,15 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                 cbEditarOperaco.Enabled = true;
                 cbEditarOperaco.SelectedIndex = -1;
 
-                cbFiltroProduto.DataSource = produtosAcoesDB.Select(0,null,null,null,null,1,null,null,null);
+                produtosModels.Add(new ProdutosModel() { Id = 0, Produto = "Todos" });
+                foreach (var item in produtosAcoesDB.Select(0, null, null, null, null, 1, null, null, null))
+                    produtosModels.Add(item);
+
+                cbFiltroProduto.DataSource = produtosModels;
                 cbFiltroProduto.DisplayMember = "Produto";
                 cbFiltroProduto.ValueMember = "Id";
                 cbFiltroProduto.Enabled = true;
-                cbFiltroProduto.SelectedIndex = -1;
+                cbFiltroProduto.SelectedIndex = 0;
 
                 cbCadastroProduto.DataSource = produtosAcoesDB.Select(0,null,null,null,null,1,null,null,null);
                 cbCadastroProduto.DisplayMember = "Produto";
@@ -440,7 +450,8 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
 
         private void dgvInventario_Click(object sender, EventArgs e)
         {
-            AlimentaEditar();
+            if (dgvInventario.DataSource != null)
+                AlimentaEditar();
         }
 
         private void txCadastroQuantidade_KeyPress(object sender, KeyPressEventArgs e)
@@ -470,6 +481,12 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
         private void ckFiltroDatas_CheckedChanged(object sender, EventArgs e)
         {
             AtivaData();
+        }
+
+        private void txFiltroId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+                e.Handled = true;
         }
     }
 }

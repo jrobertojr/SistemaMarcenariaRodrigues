@@ -37,7 +37,7 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
                 if (status > 0)
                     query += $" AND status = {resultadoStatus} ";
                 if (dataInicio != null && dataFim != null)
-                    query += $" AND data BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
+                    query += $" AND DATE(data) BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
                 DataTable tabela = Connection.SqlDataTable(query);
 
                 for (int i = 0; i < tabela.Columns.Count; i++)
@@ -94,7 +94,7 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
                 if (status > 0)
                     query += $" AND I.status = {resultadoStatus} ";
                 if (dataInicio != null && dataFim != null)
-                    query += $" AND I.data BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
+                    query += $" AND DATE(I.data) BETWEEN '{dataInicio} 00:00:00' AND '{dataFim} 12:00:00' ";
                 if (ordem != "" && ordem != null)
                 {
                     if (ordem == "crescente")

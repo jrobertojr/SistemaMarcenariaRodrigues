@@ -26,7 +26,7 @@ namespace SistemaMarcenariaRodrigues.Forms.Login
         {
             try
             {
-                UsuarioAcoesDB usuarioAcoes = new UsuarioAcoesDB();
+                UsuarioLoginAcoesDB usuarioAcoes = new UsuarioLoginAcoesDB();
 
                 if (txUsuario.Text == "" && txSenha.Text == "")
                     MessageBox.Show("Usuario e Senha devem ser preenchidos");
@@ -36,7 +36,7 @@ namespace SistemaMarcenariaRodrigues.Forms.Login
                     MessageBox.Show("Senha deve ser preenchida");
                 else
                 {
-                    List<UsuarioModel> usruarios = usuarioAcoes.Select(txUsuario.Text);
+                    List<UsuarioModel> usruarios = usuarioAcoes.Select(txUsuario.Text,0);
 
                     if (usruarios == null)
                         MessageBox.Show("Usuario não existe");
@@ -44,8 +44,8 @@ namespace SistemaMarcenariaRodrigues.Forms.Login
                         MessageBox.Show("Senha incorreta");
                     else
                     {
-                        Main formMenu = new Main();
                         Session.Instance.UserID = usruarios[0].Id;
+                        Main formMenu = new Main();
                         MessageBox.Show($"Bem vindo {usruarios[0].Nome}");
                         this.Hide();
                         formMenu.Show();
