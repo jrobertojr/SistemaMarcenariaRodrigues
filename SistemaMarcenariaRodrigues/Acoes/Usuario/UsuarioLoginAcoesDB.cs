@@ -26,15 +26,16 @@ namespace SistemaMarcenariaRodrigues.Acoes.Usuario
                     privilegio,
                     status,
                     data
-                FROM usuario";
+                FROM usuario
+                WHERE status = 1";
 
                 if (login != null)
                 {
-                    query += $" WHERE usuario = '{login}'";
+                    query += $" AND usuario = '{login}' ";
                 }
                 if (idUsuario != 0)
                 {
-                    query += $" WHERE id = '{idUsuario}'";
+                    query += $" AND id = '{idUsuario}' ";
                 }
 
                 DataTable tabela = Connection.SqlDataTable(query);
