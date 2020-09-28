@@ -136,6 +136,9 @@ namespace SistemaMarcenariaRodrigues.Acoes.Usuario
             if (usuario == null || senha == null || nome == null || email == null || privilegio == 0)
                 return "Todos os campos são obrigatórios";
 
+            if (Select(usuario, null, null, 0, 0, null, null, null, null, null) != null)
+                return "Usuario ja existente";
+
             string senhaMd5 = HashMd5.GerarMd5(senha);
 
             try
