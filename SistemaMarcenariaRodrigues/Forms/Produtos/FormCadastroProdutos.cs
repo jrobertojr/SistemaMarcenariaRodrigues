@@ -131,6 +131,10 @@ namespace SistemaMarcenariaRodrigues.Forms.Produtos
                 MessageBox.Show(produtosAcoesDB.Insert(txCadastroProduto.Text,txCadastroDimensoes.Text,
                     txCadastroFornecedor.Text,txCadastroDetalhes.Text));
 
+                pagina = 1;
+                btProximaPagina.Enabled = true;
+                btPaginaAnterior.Enabled = true;
+
                 txCadastroDetalhes.Clear();
                 txCadastroDimensoes.Clear();
                 txCadastroFornecedor.Clear();
@@ -149,22 +153,27 @@ namespace SistemaMarcenariaRodrigues.Forms.Produtos
         {
             try
             {
-                ProdutosAcoesDB produtosAcoesDB = new ProdutosAcoesDB();
-                MessageBox.Show(produtosAcoesDB.Update(
-                    lbEditarCodigoR.Text == "" ? 0 : int.Parse(lbEditarCodigoR.Text),
-                    txEditarProduto.Text == "" ? null : txEditarProduto.Text,
-                    txEditarDimensoes.Text == "" ? null : txEditarDimensoes.Text,
-                    txEditarFornecedor.Text == "" ? null : txEditarFornecedor.Text,
-                    txEditarDetalhes.Text == "" ? null : txEditarDetalhes.Text,
-                    cbEditarStatus.SelectedIndex == 0 ? false : true));
+                if (dgvProdutos.DataSource != null)
+                {
+                    ProdutosAcoesDB produtosAcoesDB = new ProdutosAcoesDB();
+                    MessageBox.Show(produtosAcoesDB.Update(
+                        lbEditarCodigoR.Text == "" ? 0 : int.Parse(lbEditarCodigoR.Text),
+                        txEditarProduto.Text == "" ? null : txEditarProduto.Text,
+                        txEditarDimensoes.Text == "" ? null : txEditarDimensoes.Text,
+                        txEditarFornecedor.Text == "" ? null : txEditarFornecedor.Text,
+                        txEditarDetalhes.Text == "" ? null : txEditarDetalhes.Text,
+                        cbEditarStatus.SelectedIndex == 0 ? false : true));
 
-                txEditarDetalhes.Clear();
-                txEditarDimensoes.Clear();
-                txEditarFornecedor.Clear();
-                txEditarProduto.Clear();
-                cbEditarStatus.SelectedIndex = 1;
+                    txEditarDetalhes.Clear();
+                    txEditarDimensoes.Clear();
+                    txEditarFornecedor.Clear();
+                    txEditarProduto.Clear();
+                    cbEditarStatus.SelectedIndex = 1;
 
-                AlimentaDGV();
+                    AlimentaDGV();
+                }
+                else
+                    MessageBox.Show("Não á produto selecionado");
             }
             catch (Exception ex)
             {

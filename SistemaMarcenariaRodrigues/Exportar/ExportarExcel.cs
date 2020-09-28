@@ -22,17 +22,19 @@ namespace SistemaMarcenariaRodrigues.Exportar
                     folderDlg.ShowNewFolderButton = true;
                     DialogResult result = folderDlg.ShowDialog();
                     if (result == DialogResult.OK)
-                        folderPath = folderDlg.SelectedPath;
-                    if (!Directory.Exists(folderPath))
-                        Directory.CreateDirectory(folderPath);
-                    using (XLWorkbook wb = new XLWorkbook())
                     {
-                        string caminho = Path.Combine(folderPath, $"Estoque {DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")}.xlsx");
-                        wb.Worksheets.Add(datatable, "Customers");
-                        wb.SaveAs(caminho);
-                    }
+                        folderPath = folderDlg.SelectedPath;
+                        if (!Directory.Exists(folderPath))
+                            Directory.CreateDirectory(folderPath);
+                        using (XLWorkbook wb = new XLWorkbook())
+                        {
+                            string caminho = Path.Combine(folderPath, $"Estoque {DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")}.xlsx");
+                            wb.Worksheets.Add(datatable, "Customers");
+                            wb.SaveAs(caminho);
+                        }
 
-                    MessageBox.Show($"Arquivo Estoque {DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")}.xlsx exportado para {folderPath}");
+                        MessageBox.Show($"Arquivo Estoque {DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss")}.xlsx exportado para {folderPath}");
+                    }
                 }
                 else
                     MessageBox.Show($"Erro ao exportar pedidos, consulte o desenvolvedor.");

@@ -347,18 +347,19 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                 cbCadastroProduto.DisplayMember = "Produto";
                 cbCadastroProduto.ValueMember = "Id";
                 cbCadastroProduto.Enabled = true;
-                cbCadastroProduto.SelectedValue = 1;
+                cbCadastroProduto.SelectedValue = 0;
 
                 cbEditarProduto.DataSource = produtosAcoesDB.Select(0,null,null,null,null,1,null,null,null);
                 cbEditarProduto.DisplayMember = "Produto";
                 cbEditarProduto.ValueMember = "Id";
                 cbEditarProduto.Enabled = true;
-                cbEditarProduto.SelectedIndex = -1;
+                cbEditarProduto.SelectedIndex = 0;
 
                 cbCadastroOperacao.DataSource = operacoesAcoesDB.Select(1,false);
                 cbCadastroOperacao.DisplayMember = "Movimento";
                 cbCadastroOperacao.ValueMember = "Id";
                 cbCadastroOperacao.Enabled = true;
+                cbCadastroOperacao.SelectedIndex = 0;
 
                 AcceptButton = btPesquisar;
             }
@@ -398,8 +399,11 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                     txCadastroFornecedor.Text,
                     txCadastroComplemento.Text));
 
+                pagina = 1;
+                btProximaPagina.Enabled = true;
+                btPaginaAnterior.Enabled = true;
+
                 cbCadastroProduto.SelectedIndex = -1;
-                cbCadastroOperacao.SelectedIndex = -1;
                 txCadastroQuantidade.Clear();
                 txCadastroValorUnitario.Clear();
                 txCadastroSerie.Clear();
@@ -411,7 +415,7 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar produto, contate o desenvolvedor");
+                MessageBox.Show("Erro ao cadastrar inventario, contate o desenvolvedor");
                 RegistraLog.Log($"Erro ao cadastrar produto -- {ex}");
             }
         }
@@ -420,20 +424,25 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
         {
             try
             {
-                InventarioAcoesDB inventarioAcoesDB = new InventarioAcoesDB();
-                MessageBox.Show(inventarioAcoesDB.Update(
-                    (int)dgvInventario.Rows[dgvInventario.SelectedRows[0].Index].Cells["Id"].Value,
-                    (int)cbEditarProduto.SelectedValue,
-                    (int)cbEditarOperaco.SelectedValue,
-                    int.Parse(txEditarQuantidade.Text),
-                    double.Parse(txEditarValorUnitario.Text),
-                    txEditarSerie.Text,
-                    txEditarNotaFiscal.Text,
-                    txEditarFornecedor.Text,
-                    txEditarComplemento.Text,
-                    cbEditarStatus.SelectedIndex == 1 ? true : false));
+                if (dgvInventario.DataSource != null)
+                {
+                    InventarioAcoesDB inventarioAcoesDB = new InventarioAcoesDB();
+                    MessageBox.Show(inventarioAcoesDB.Update(
+                        (int)dgvInventario.Rows[dgvInventario.SelectedRows[0].Index].Cells["Id"].Value,
+                        (int)cbEditarProduto.SelectedValue,
+                        (int)cbEditarOperaco.SelectedValue,
+                        int.Parse(txEditarQuantidade.Text),
+                        double.Parse(txEditarValorUnitario.Text),
+                        txEditarSerie.Text,
+                        txEditarNotaFiscal.Text,
+                        txEditarFornecedor.Text,
+                        txEditarComplemento.Text,
+                        cbEditarStatus.SelectedIndex == 1 ? true : false));
 
-                AlimentaDGV();
+                    AlimentaDGV();
+                }
+                else
+                    MessageBox.Show("Não á inventario selecionado");
             }
             catch (Exception ex)
             {
