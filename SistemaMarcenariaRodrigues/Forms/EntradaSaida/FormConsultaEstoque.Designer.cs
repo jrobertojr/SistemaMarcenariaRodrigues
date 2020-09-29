@@ -37,6 +37,9 @@
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.dgvEstoque = new System.Windows.Forms.DataGridView();
             this.gbPreco = new System.Windows.Forms.GroupBox();
+            this.lbRodapeQTResultado = new System.Windows.Forms.Label();
+            this.lbInfQuantidade = new System.Windows.Forms.Label();
+            this.lbInfValorTotal = new System.Windows.Forms.Label();
             this.lbRodapeVTResultado = new System.Windows.Forms.Label();
             this.btExportar = new System.Windows.Forms.Button();
             this.btImprimir = new System.Windows.Forms.Button();
@@ -57,9 +60,6 @@
             this.lbQuantidadePagina = new System.Windows.Forms.Label();
             this.cbQtdPagina = new System.Windows.Forms.ComboBox();
             this.btPesquisar = new System.Windows.Forms.Button();
-            this.lbInfValorTotal = new System.Windows.Forms.Label();
-            this.lbInfQuantidade = new System.Windows.Forms.Label();
-            this.lbRodapeQTResultado = new System.Windows.Forms.Label();
             this.panelBarraJanela.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstoque)).BeginInit();
@@ -189,6 +189,39 @@
             this.gbPreco.Size = new System.Drawing.Size(960, 36);
             this.gbPreco.TabIndex = 13;
             this.gbPreco.TabStop = false;
+            // 
+            // lbRodapeQTResultado
+            // 
+            this.lbRodapeQTResultado.AutoSize = true;
+            this.lbRodapeQTResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRodapeQTResultado.Location = new System.Drawing.Point(104, 15);
+            this.lbRodapeQTResultado.Name = "lbRodapeQTResultado";
+            this.lbRodapeQTResultado.Size = new System.Drawing.Size(72, 13);
+            this.lbRodapeQTResultado.TabIndex = 73;
+            this.lbRodapeQTResultado.Text = "Quantidade";
+            this.lbRodapeQTResultado.Visible = false;
+            // 
+            // lbInfQuantidade
+            // 
+            this.lbInfQuantidade.AutoSize = true;
+            this.lbInfQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfQuantidade.Location = new System.Drawing.Point(6, 15);
+            this.lbInfQuantidade.Name = "lbInfQuantidade";
+            this.lbInfQuantidade.Size = new System.Drawing.Size(92, 13);
+            this.lbInfQuantidade.TabIndex = 72;
+            this.lbInfQuantidade.Text = "Quantidade Total:";
+            this.lbInfQuantidade.Visible = false;
+            // 
+            // lbInfValorTotal
+            // 
+            this.lbInfValorTotal.AutoSize = true;
+            this.lbInfValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfValorTotal.Location = new System.Drawing.Point(182, 15);
+            this.lbInfValorTotal.Name = "lbInfValorTotal";
+            this.lbInfValorTotal.Size = new System.Drawing.Size(61, 13);
+            this.lbInfValorTotal.TabIndex = 71;
+            this.lbInfValorTotal.Text = "Valor Total:";
+            this.lbInfValorTotal.Visible = false;
             // 
             // lbRodapeVTResultado
             // 
@@ -344,6 +377,7 @@
             // 
             // cbFiltroProduto
             // 
+            this.cbFiltroProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltroProduto.FormattingEnabled = true;
             this.cbFiltroProduto.Location = new System.Drawing.Point(15, 33);
             this.cbFiltroProduto.Name = "cbFiltroProduto";
@@ -442,39 +476,6 @@
             this.btPesquisar.Text = "PESQUISAR";
             this.btPesquisar.UseVisualStyleBackColor = false;
             this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
-            // 
-            // lbInfValorTotal
-            // 
-            this.lbInfValorTotal.AutoSize = true;
-            this.lbInfValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfValorTotal.Location = new System.Drawing.Point(182, 15);
-            this.lbInfValorTotal.Name = "lbInfValorTotal";
-            this.lbInfValorTotal.Size = new System.Drawing.Size(61, 13);
-            this.lbInfValorTotal.TabIndex = 71;
-            this.lbInfValorTotal.Text = "Valor Total:";
-            this.lbInfValorTotal.Visible = false;
-            // 
-            // lbInfQuantidade
-            // 
-            this.lbInfQuantidade.AutoSize = true;
-            this.lbInfQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfQuantidade.Location = new System.Drawing.Point(6, 15);
-            this.lbInfQuantidade.Name = "lbInfQuantidade";
-            this.lbInfQuantidade.Size = new System.Drawing.Size(92, 13);
-            this.lbInfQuantidade.TabIndex = 72;
-            this.lbInfQuantidade.Text = "Quantidade Total:";
-            this.lbInfQuantidade.Visible = false;
-            // 
-            // lbRodapeQTResultado
-            // 
-            this.lbRodapeQTResultado.AutoSize = true;
-            this.lbRodapeQTResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRodapeQTResultado.Location = new System.Drawing.Point(104, 15);
-            this.lbRodapeQTResultado.Name = "lbRodapeQTResultado";
-            this.lbRodapeQTResultado.Size = new System.Drawing.Size(72, 13);
-            this.lbRodapeQTResultado.TabIndex = 73;
-            this.lbRodapeQTResultado.Text = "Quantidade";
-            this.lbRodapeQTResultado.Visible = false;
             // 
             // FormConsultaEstoque
             // 

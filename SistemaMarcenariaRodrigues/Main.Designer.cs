@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btUsuario = new System.Windows.Forms.Button();
             this.btEntradaSaida = new System.Windows.Forms.Button();
             this.btProdutos = new System.Windows.Forms.Button();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.panelMenuUsuarios = new System.Windows.Forms.Panel();
+            this.btCadastroUsuario = new System.Windows.Forms.Button();
             this.panelMenuEntradaSaida = new System.Windows.Forms.Panel();
             this.btEstoque = new System.Windows.Forms.Button();
             this.btCadastroInventario = new System.Windows.Forms.Button();
             this.panelMenuProduto = new System.Windows.Forms.Panel();
             this.btAdmTarefas = new System.Windows.Forms.Button();
-            this.btUsuario = new System.Windows.Forms.Button();
-            this.panelMenuUsuarios = new System.Windows.Forms.Panel();
-            this.btCadastroUsuario = new System.Windows.Forms.Button();
             this.panelMenuLogo = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelDesktop.SuspendLayout();
+            this.panelMenuUsuarios.SuspendLayout();
             this.panelMenuEntradaSaida.SuspendLayout();
             this.panelMenuProduto.SuspendLayout();
-            this.panelMenuUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -59,6 +60,19 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(942, 31);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btUsuario
+            // 
+            this.btUsuario.FlatAppearance.BorderSize = 0;
+            this.btUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btUsuario.Location = new System.Drawing.Point(236, 5);
+            this.btUsuario.Name = "btUsuario";
+            this.btUsuario.Size = new System.Drawing.Size(83, 23);
+            this.btUsuario.TabIndex = 2;
+            this.btUsuario.Text = "USUÁRIOS";
+            this.btUsuario.UseVisualStyleBackColor = true;
+            this.btUsuario.Click += new System.EventHandler(this.btUsuario_Click);
             // 
             // btEntradaSaida
             // 
@@ -98,6 +112,30 @@
             this.panelDesktop.Size = new System.Drawing.Size(942, 475);
             this.panelDesktop.TabIndex = 2;
             this.panelDesktop.Click += new System.EventHandler(this.panelDeskTop_Click);
+            // 
+            // panelMenuUsuarios
+            // 
+            this.panelMenuUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelMenuUsuarios.Controls.Add(this.btCadastroUsuario);
+            this.panelMenuUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMenuUsuarios.Location = new System.Drawing.Point(0, 40);
+            this.panelMenuUsuarios.Name = "panelMenuUsuarios";
+            this.panelMenuUsuarios.Size = new System.Drawing.Size(942, 20);
+            this.panelMenuUsuarios.TabIndex = 5;
+            this.panelMenuUsuarios.Visible = false;
+            // 
+            // btCadastroUsuario
+            // 
+            this.btCadastroUsuario.FlatAppearance.BorderSize = 0;
+            this.btCadastroUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCadastroUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btCadastroUsuario.Location = new System.Drawing.Point(258, 0);
+            this.btCadastroUsuario.Name = "btCadastroUsuario";
+            this.btCadastroUsuario.Size = new System.Drawing.Size(154, 20);
+            this.btCadastroUsuario.TabIndex = 1;
+            this.btCadastroUsuario.Text = "CADASTRO DE USUÁRIO";
+            this.btCadastroUsuario.UseVisualStyleBackColor = true;
+            this.btCadastroUsuario.Click += new System.EventHandler(this.btCadastroUsuario_Click);
             // 
             // panelMenuEntradaSaida
             // 
@@ -161,51 +199,14 @@
             this.btAdmTarefas.UseVisualStyleBackColor = true;
             this.btAdmTarefas.Click += new System.EventHandler(this.btAdmTarefas_Click);
             // 
-            // btUsuario
-            // 
-            this.btUsuario.FlatAppearance.BorderSize = 0;
-            this.btUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btUsuario.Location = new System.Drawing.Point(236, 5);
-            this.btUsuario.Name = "btUsuario";
-            this.btUsuario.Size = new System.Drawing.Size(83, 23);
-            this.btUsuario.TabIndex = 2;
-            this.btUsuario.Text = "USUÁRIOS";
-            this.btUsuario.UseVisualStyleBackColor = true;
-            this.btUsuario.Click += new System.EventHandler(this.btUsuario_Click);
-            // 
-            // panelMenuUsuarios
-            // 
-            this.panelMenuUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelMenuUsuarios.Controls.Add(this.btCadastroUsuario);
-            this.panelMenuUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenuUsuarios.Location = new System.Drawing.Point(0, 40);
-            this.panelMenuUsuarios.Name = "panelMenuUsuarios";
-            this.panelMenuUsuarios.Size = new System.Drawing.Size(942, 20);
-            this.panelMenuUsuarios.TabIndex = 5;
-            this.panelMenuUsuarios.Visible = false;
-            // 
-            // btCadastroUsuario
-            // 
-            this.btCadastroUsuario.FlatAppearance.BorderSize = 0;
-            this.btCadastroUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btCadastroUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btCadastroUsuario.Location = new System.Drawing.Point(258, 0);
-            this.btCadastroUsuario.Name = "btCadastroUsuario";
-            this.btCadastroUsuario.Size = new System.Drawing.Size(154, 20);
-            this.btCadastroUsuario.TabIndex = 1;
-            this.btCadastroUsuario.Text = "CADASTRO DE USUÁRIO";
-            this.btCadastroUsuario.UseVisualStyleBackColor = true;
-            this.btCadastroUsuario.Click += new System.EventHandler(this.btCadastroUsuario_Click);
-            // 
             // panelMenuLogo
             // 
             this.panelMenuLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelMenuLogo.BackgroundImage = global::SistemaMarcenariaRodrigues.Properties.Resources.MRmarca;
+            this.panelMenuLogo.BackgroundImage = global::SistemaMarcenariaRodrigues.Properties.Resources.Logo_MR;
             this.panelMenuLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelMenuLogo.Location = new System.Drawing.Point(258, 116);
+            this.panelMenuLogo.Location = new System.Drawing.Point(246, 103);
             this.panelMenuLogo.Name = "panelMenuLogo";
             this.panelMenuLogo.Size = new System.Drawing.Size(435, 266);
             this.panelMenuLogo.TabIndex = 4;
@@ -220,6 +221,7 @@
             this.ClientSize = new System.Drawing.Size(942, 506);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marcenaria Rodrigues";
@@ -227,9 +229,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenu_FormClosing);
             this.panelMenu.ResumeLayout(false);
             this.panelDesktop.ResumeLayout(false);
+            this.panelMenuUsuarios.ResumeLayout(false);
             this.panelMenuEntradaSaida.ResumeLayout(false);
             this.panelMenuProduto.ResumeLayout(false);
-            this.panelMenuUsuarios.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

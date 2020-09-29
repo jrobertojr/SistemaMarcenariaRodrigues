@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panelBarraJanela = new System.Windows.Forms.Panel();
-            this.btFechar = new System.Windows.Forms.Button();
             this.lbTituloJanela = new System.Windows.Forms.Label();
             this.txSenha = new System.Windows.Forms.TextBox();
             this.txUsuario = new System.Windows.Forms.TextBox();
             this.btLogar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbUsuario = new System.Windows.Forms.Label();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.btConfig = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.btFechar = new System.Windows.Forms.Button();
             this.panelBarraJanela.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,21 +51,6 @@
             this.panelBarraJanela.Name = "panelBarraJanela";
             this.panelBarraJanela.Size = new System.Drawing.Size(321, 25);
             this.panelBarraJanela.TabIndex = 2;
-            // 
-            // btFechar
-            // 
-            this.btFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btFechar.FlatAppearance.BorderSize = 0;
-            this.btFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btFechar.Image = global::SistemaMarcenariaRodrigues.Properties.Resources.Fechar01;
-            this.btFechar.Location = new System.Drawing.Point(298, 0);
-            this.btFechar.Name = "btFechar";
-            this.btFechar.Size = new System.Drawing.Size(23, 23);
-            this.btFechar.TabIndex = 60;
-            this.btFechar.UseVisualStyleBackColor = true;
-            this.btFechar.Click += new System.EventHandler(this.btFechar_Click);
             // 
             // lbTituloJanela
             // 
@@ -143,18 +128,6 @@
             this.lbUsuario.TabIndex = 6;
             this.lbUsuario.Text = "Usuario:";
             // 
-            // panelLogo
-            // 
-            this.panelLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelLogo.BackgroundImage = global::SistemaMarcenariaRodrigues.Properties.Resources.MRmarca;
-            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelLogo.Location = new System.Drawing.Point(54, 41);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(215, 86);
-            this.panelLogo.TabIndex = 3;
-            // 
             // btConfig
             // 
             this.btConfig.BackgroundImage = global::SistemaMarcenariaRodrigues.Properties.Resources.Config;
@@ -167,6 +140,33 @@
             this.btConfig.TabIndex = 3;
             this.btConfig.UseVisualStyleBackColor = true;
             this.btConfig.Click += new System.EventHandler(this.btPesquisar_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelLogo.BackgroundImage = global::SistemaMarcenariaRodrigues.Properties.Resources.Logo_MR;
+            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelLogo.Location = new System.Drawing.Point(86, 31);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(148, 105);
+            this.panelLogo.TabIndex = 3;
+            // 
+            // btFechar
+            // 
+            this.btFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btFechar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btFechar.FlatAppearance.BorderSize = 0;
+            this.btFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btFechar.Image = global::SistemaMarcenariaRodrigues.Properties.Resources.Fechar01;
+            this.btFechar.Location = new System.Drawing.Point(298, 0);
+            this.btFechar.Name = "btFechar";
+            this.btFechar.Size = new System.Drawing.Size(23, 23);
+            this.btFechar.TabIndex = 60;
+            this.btFechar.UseVisualStyleBackColor = true;
+            this.btFechar.Click += new System.EventHandler(this.btFechar_Click);
             // 
             // FormLogin
             // 

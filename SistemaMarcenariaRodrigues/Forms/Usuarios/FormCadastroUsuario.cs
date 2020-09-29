@@ -356,20 +356,25 @@ namespace SistemaMarcenariaRodrigues.Forms.Usuarios
         {
             try
             {
-                if (VerificaEmail(txCadastroEmail.Text) || txCadastroEmail.Text == "")
+                if (txCadastroSenha.TextLength >= 6)
                 {
-                    UsuarioAcoesDB usuarioAcoesDB = new UsuarioAcoesDB();
-                    MessageBox.Show(usuarioAcoesDB.Insert(
-                        txCadastroUsuario.Text == "" ? null : txCadastroUsuario.Text,
-                        txCadastroNome.Text == "" ? null : txCadastroNome.Text,
-                        txCadastroSenha.Text == "" ? null : txCadastroSenha.Text,
-                        txCadastroEmail.Text == "" ? null : txCadastroEmail.Text,
-                        (int)cbCadastroPrivilegio.SelectedValue));
+                    if (VerificaEmail(txCadastroEmail.Text) || txCadastroEmail.Text == "")
+                    {
+                        UsuarioAcoesDB usuarioAcoesDB = new UsuarioAcoesDB();
+                        MessageBox.Show(usuarioAcoesDB.Insert(
+                            txCadastroUsuario.Text == "" ? null : txCadastroUsuario.Text,
+                            txCadastroNome.Text == "" ? null : txCadastroNome.Text,
+                            txCadastroSenha.Text == "" ? null : txCadastroSenha.Text,
+                            txCadastroEmail.Text == "" ? null : txCadastroEmail.Text,
+                            (int)cbCadastroPrivilegio.SelectedValue));
 
-                    AlimentaDGV();
+                        AlimentaDGV();
+                    }
+                    else
+                        MessageBox.Show("E-Mail invalido");
                 }
                 else
-                    MessageBox.Show("E-Mail invalido");
+                    MessageBox.Show("Senha deve conter no mínimo 6 caracteres");
                 
             }
             catch (Exception)
@@ -384,22 +389,27 @@ namespace SistemaMarcenariaRodrigues.Forms.Usuarios
             {
                 if (dgvUsuarios.DataSource != null)
                 {
-                    if (VerificaEmail(txEditarEmail.Text) || txEditarEmail.Text == "")
+                    if (txCadastroSenha.TextLength >= 6)
                     {
-                        UsuarioAcoesDB usuarioAcoesDB = new UsuarioAcoesDB();
-                        MessageBox.Show(usuarioAcoesDB.Upgrade(
-                            (int)dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells["Id"].Value,
-                            txEditarUsuario.Text == "" ? null : txEditarUsuario.Text,
-                            txEditarNome.Text == "" ? null : txEditarNome.Text,
-                            txEditarSenha.Text == "" ? null : txEditarSenha.Text,
-                            txEditarEmail.Text == "" ? null : txEditarEmail.Text,
-                            (int)cbEditarPrivilegio.SelectedValue,
-                            cbEditarStatus.SelectedIndex));
+                        if (VerificaEmail(txEditarEmail.Text) || txEditarEmail.Text == "")
+                        {
+                            UsuarioAcoesDB usuarioAcoesDB = new UsuarioAcoesDB();
+                            MessageBox.Show(usuarioAcoesDB.Upgrade(
+                                (int)dgvUsuarios.Rows[dgvUsuarios.SelectedRows[0].Index].Cells["Id"].Value,
+                                txEditarUsuario.Text == "" ? null : txEditarUsuario.Text,
+                                txEditarNome.Text == "" ? null : txEditarNome.Text,
+                                txEditarSenha.Text == "" ? null : txEditarSenha.Text,
+                                txEditarEmail.Text == "" ? null : txEditarEmail.Text,
+                                (int)cbEditarPrivilegio.SelectedValue,
+                                cbEditarStatus.SelectedIndex));
 
-                        AlimentaDGV();
+                            AlimentaDGV();
+                        }
+                        else
+                            MessageBox.Show("E-Mail invalido");
                     }
                     else
-                        MessageBox.Show("E-Mail invalido");
+                        MessageBox.Show("Senha deve conter no mínimo 6 caracteres");
                 }
                 else
                     MessageBox.Show("Não á usuario selecionado");

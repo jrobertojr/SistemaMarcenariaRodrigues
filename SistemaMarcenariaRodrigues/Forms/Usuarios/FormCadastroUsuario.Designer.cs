@@ -309,6 +309,7 @@
             // 
             // cbFiltroStatus
             // 
+            this.cbFiltroStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltroStatus.FormattingEnabled = true;
             this.cbFiltroStatus.Location = new System.Drawing.Point(382, 73);
             this.cbFiltroStatus.Name = "cbFiltroStatus";
@@ -334,6 +335,7 @@
             // 
             // cbFiltroPrivilegio
             // 
+            this.cbFiltroPrivilegio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltroPrivilegio.FormattingEnabled = true;
             this.cbFiltroPrivilegio.Location = new System.Drawing.Point(229, 73);
             this.cbFiltroPrivilegio.Name = "cbFiltroPrivilegio";
@@ -563,6 +565,7 @@
             // 
             // cbEditarStatus
             // 
+            this.cbEditarStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEditarStatus.FormattingEnabled = true;
             this.cbEditarStatus.Location = new System.Drawing.Point(507, 35);
             this.cbEditarStatus.Name = "cbEditarStatus";
@@ -581,6 +584,7 @@
             // 
             // cbEditarPrivilegio
             // 
+            this.cbEditarPrivilegio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEditarPrivilegio.FormattingEnabled = true;
             this.cbEditarPrivilegio.Location = new System.Drawing.Point(443, 82);
             this.cbEditarPrivilegio.Name = "cbEditarPrivilegio";
@@ -744,6 +748,7 @@
             // 
             // cbCadastroPrivilegio
             // 
+            this.cbCadastroPrivilegio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCadastroPrivilegio.FormattingEnabled = true;
             this.cbCadastroPrivilegio.Location = new System.Drawing.Point(443, 74);
             this.cbCadastroPrivilegio.Name = "cbCadastroPrivilegio";

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBarraJanela = new System.Windows.Forms.Panel();
             this.btMinimizar = new System.Windows.Forms.Button();
             this.btMaximizar = new System.Windows.Forms.Button();
@@ -216,14 +216,14 @@
             // 
             this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInventario.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInventario.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInventario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInventario.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvInventario.Location = new System.Drawing.Point(0, 334);
@@ -401,6 +401,7 @@
             // 
             // cbFiltroStatus
             // 
+            this.cbFiltroStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltroStatus.FormattingEnabled = true;
             this.cbFiltroStatus.Location = new System.Drawing.Point(15, 74);
             this.cbFiltroStatus.Name = "cbFiltroStatus";
@@ -420,6 +421,7 @@
             // 
             // cbFiltroOperacao
             // 
+            this.cbFiltroOperacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltroOperacao.FormattingEnabled = true;
             this.cbFiltroOperacao.Location = new System.Drawing.Point(110, 74);
             this.cbFiltroOperacao.Name = "cbFiltroOperacao";
@@ -446,6 +448,7 @@
             // 
             // cbFiltroProduto
             // 
+            this.cbFiltroProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltroProduto.FormattingEnabled = true;
             this.cbFiltroProduto.Location = new System.Drawing.Point(110, 33);
             this.cbFiltroProduto.Name = "cbFiltroProduto";
@@ -628,6 +631,7 @@
             // 
             // cbEditarStatus
             // 
+            this.cbEditarStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEditarStatus.FormattingEnabled = true;
             this.cbEditarStatus.Location = new System.Drawing.Point(543, 33);
             this.cbEditarStatus.Name = "cbEditarStatus";
@@ -647,6 +651,7 @@
             // 
             // cbEditarOperaco
             // 
+            this.cbEditarOperaco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEditarOperaco.FormattingEnabled = true;
             this.cbEditarOperaco.Location = new System.Drawing.Point(15, 33);
             this.cbEditarOperaco.Name = "cbEditarOperaco";
@@ -746,6 +751,7 @@
             // 
             // cbEditarProduto
             // 
+            this.cbEditarProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEditarProduto.FormattingEnabled = true;
             this.cbEditarProduto.Location = new System.Drawing.Point(110, 33);
             this.cbEditarProduto.Name = "cbEditarProduto";
@@ -856,6 +862,7 @@
             // 
             // cbCadastroOperacao
             // 
+            this.cbCadastroOperacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCadastroOperacao.FormattingEnabled = true;
             this.cbCadastroOperacao.Location = new System.Drawing.Point(15, 39);
             this.cbCadastroOperacao.Name = "cbCadastroOperacao";
@@ -956,6 +963,7 @@
             // 
             // cbCadastroProduto
             // 
+            this.cbCadastroProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCadastroProduto.FormattingEnabled = true;
             this.cbCadastroProduto.Location = new System.Drawing.Point(110, 39);
             this.cbCadastroProduto.Name = "cbCadastroProduto";
