@@ -8,7 +8,7 @@
         public int Operacao { get; set; }
         public string NomeOperacao { get; set; }
         public int Quantidade { get; set; }
-        public string ValorEntrada { get; set; }
+        public double ValorEntrada { get; set; }
         public string ValorTotal { get; set; }
         public string Serie { get; set; }
         public string NotaFiscal { get; set; }

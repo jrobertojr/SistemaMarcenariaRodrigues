@@ -6,6 +6,7 @@ using SistemaMarcenariaRodrigues.Model;
 using SistemaMarcenariaRodrigues.Model.Produtos;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -126,8 +127,7 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                 txEditarSerie.Text = dgvInventario.DataSource == null ?
                     "" : dgvInventario.Rows[dgvInventario.SelectedRows[0].Index].Cells["Serie"].Value.ToString();
                 txEditarValorUnitario.Text = dgvInventario.DataSource == null ?
-                    "" : dgvInventario.Rows[dgvInventario.SelectedRows[0].Index].Cells["ValorEntrada"].Value.ToString()
-                    .Trim('R', '$', ' ').Replace(".", "").Replace(",", ".");
+                    "" : dgvInventario.Rows[dgvInventario.SelectedRows[0].Index].Cells["ValorEntrada"].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -212,6 +212,9 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                         dgvInventario.Columns["Complemento"].DisplayIndex = 11;
                         dgvInventario.Columns["Status"].DisplayIndex = 12;
                         dgvInventario.Columns["Data"].DisplayIndex = 13;
+
+                        CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("pt-BR");
+                        dgvInventario.Columns["ValorEntrada"].DefaultCellStyle.Format = "C2";
 
                         dgvInventario.Columns["Produto"].Visible = false;
                         dgvInventario.Columns["Operacao"].Visible = false;
@@ -384,34 +387,54 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                 AlimentaEditar();
         }
 
+        private bool numero(string texto)
+        {
+            try
+            {
+                double validar = double.Parse(texto.Replace(",", "."));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         private void btCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
-                InventarioAcoesDB inventarioAcoesDB = new InventarioAcoesDB();
-                MessageBox.Show(inventarioAcoesDB.Insert(
-                    (int)cbCadastroProduto.SelectedValue,
-                    (int)cbCadastroOperacao.SelectedValue,
-                    int.Parse(txCadastroQuantidade.Text),
-                    double.Parse(txCadastroValorUnitario.Text),
-                    txCadastroSerie.Text,
-                    txCadastroNotaFiscal.Text,
-                    txCadastroFornecedor.Text,
-                    txCadastroComplemento.Text));
+                bool isDigitPresent = numero(txCadastroValorUnitario.Text);
+                if (isDigitPresent)
+                {
+                    InventarioAcoesDB inventarioAcoesDB = new InventarioAcoesDB();
+                    MessageBox.Show(inventarioAcoesDB.Insert(
+                        (int)cbCadastroProduto.SelectedValue,
+                        (int)cbCadastroOperacao.SelectedValue,
+                        int.Parse(txCadastroQuantidade.Text),
+                        double.Parse(txCadastroValorUnitario.Text),
+                        txCadastroSerie.Text,
+                        txCadastroNotaFiscal.Text,
+                        txCadastroFornecedor.Text,
+                        txCadastroComplemento.Text));
 
-                pagina = 1;
-                btProximaPagina.Enabled = true;
-                btPaginaAnterior.Enabled = true;
+                    pagina = 1;
+                    btProximaPagina.Enabled = true;
+                    btPaginaAnterior.Enabled = true;
 
-                cbCadastroProduto.SelectedIndex = -1;
-                txCadastroQuantidade.Clear();
-                txCadastroValorUnitario.Clear();
-                txCadastroSerie.Clear();
-                txCadastroNotaFiscal.Clear();
-                txCadastroFornecedor.Clear();
-                txCadastroComplemento.Clear();
+                    cbCadastroProduto.SelectedIndex = -1;
+                    txCadastroQuantidade.Clear();
+                    txCadastroValorUnitario.Clear();
+                    txCadastroSerie.Clear();
+                    txCadastroNotaFiscal.Clear();
+                    txCadastroFornecedor.Clear();
+                    txCadastroComplemento.Clear();
 
-                AlimentaDGV();
+                    AlimentaDGV();
+                }
+                else
+                    MessageBox.Show("Valor unitario incorreto");
+                
             }
             catch (Exception ex)
             {
@@ -424,22 +447,28 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
         {
             try
             {
+                bool isDigitPresent = numero(txEditarValorUnitario.Text);
                 if (dgvInventario.DataSource != null)
                 {
-                    InventarioAcoesDB inventarioAcoesDB = new InventarioAcoesDB();
-                    MessageBox.Show(inventarioAcoesDB.Update(
-                        (int)dgvInventario.Rows[dgvInventario.SelectedRows[0].Index].Cells["Id"].Value,
-                        (int)cbEditarProduto.SelectedValue,
-                        (int)cbEditarOperaco.SelectedValue,
-                        int.Parse(txEditarQuantidade.Text),
-                        double.Parse(txEditarValorUnitario.Text),
-                        txEditarSerie.Text,
-                        txEditarNotaFiscal.Text,
-                        txEditarFornecedor.Text,
-                        txEditarComplemento.Text,
-                        cbEditarStatus.SelectedIndex == 1 ? true : false));
+                    if (isDigitPresent)
+                    {
+                        InventarioAcoesDB inventarioAcoesDB = new InventarioAcoesDB();
+                        MessageBox.Show(inventarioAcoesDB.Update(
+                            (int)dgvInventario.Rows[dgvInventario.SelectedRows[0].Index].Cells["Id"].Value,
+                            (int)cbEditarProduto.SelectedValue,
+                            (int)cbEditarOperaco.SelectedValue,
+                            int.Parse(txEditarQuantidade.Text),
+                            decimal.Parse(txEditarValorUnitario.Text),
+                            txEditarSerie.Text,
+                            txEditarNotaFiscal.Text,
+                            txEditarFornecedor.Text,
+                            txEditarComplemento.Text,
+                            cbEditarStatus.SelectedIndex == 1 ? true : false));
 
-                    AlimentaDGV();
+                        AlimentaDGV();
+                    }
+                    else
+                        MessageBox.Show("Valor unitario incorreto");
                 }
                 else
                     MessageBox.Show("Não á inventario selecionado");
@@ -477,7 +506,7 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
 
         private void txCadastroValorUnitario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && (e.KeyChar != '.'))
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && (e.KeyChar != ','))
                 e.Handled = true;
         }
 
@@ -489,7 +518,7 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
 
         private void txEditarValorUnitario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && (e.KeyChar != '.'))
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && (e.KeyChar != ','))
                 e.Handled = true;
         }
 
@@ -520,7 +549,7 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
         {
             if (comboBox.DataSource != null)
             {
-                if (cbCadastroOperacao.SelectedValue.ToString() == "2")
+                if (cbCadastroOperacao.SelectedValue.ToString() == "2" && cbCadastroProduto.SelectedValue != null)
                 {
                     InventarioAcoesDB inventarioAcoesDB = new InventarioAcoesDB();
 
@@ -533,7 +562,7 @@ namespace SistemaMarcenariaRodrigues.Forms.EntradaSaida
                         txCadastroNotaFiscal.Enabled = false;
                         txCadastroSerie.Enabled = false;
 
-                        txCadastroValorUnitario.Text = inventario[0].ValorEntrada.ToString().Trim('R', '$', ' ').Replace(".", "").Replace(",", ".");
+                        txCadastroValorUnitario.Text = inventario[0].ValorEntrada.ToString();
                         txCadastroNotaFiscal.Text = inventario[0].NotaFiscal;
                         txCadastroSerie.Text = inventario[0].Serie;
                     }

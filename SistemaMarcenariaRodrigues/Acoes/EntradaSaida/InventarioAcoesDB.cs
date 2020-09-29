@@ -4,7 +4,6 @@ using SistemaMarcenariaRodrigues.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 
 namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
 {
@@ -117,7 +116,8 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
                         Operacao = tabela.Rows[i]["operacao"].ToString() == "" ? 0 : (int)tabela.Rows[i]["operacao"],
                         NomeOperacao = tabela.Rows[i]["operacaofiscal"].ToString(),
                         Quantidade = tabela.Rows[i]["quantidade"].ToString() == "" ? 0 : (int)tabela.Rows[i]["quantidade"],
-                        ValorEntrada = string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", double.Parse(tabela.Rows[i]["valorentrada"].ToString())),
+                        ValorEntrada = double.Parse(tabela.Rows[i]["valorentrada"].ToString()),
+                        //ValorEntrada = string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:C}", double.Parse(tabela.Rows[i]["valorentrada"].ToString())),
                         ValorTotal = inventarioAcoes.ValorTotal(double.Parse(tabela.Rows[i]["valorentrada"].ToString()), (int)tabela.Rows[i]["quantidade"]),
                         Serie = tabela.Rows[i]["serie"].ToString(),
                         NotaFiscal = tabela.Rows[i]["notaFiscal"].ToString(),
@@ -143,8 +143,11 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
         {
             try
             {
-                if (produto <= 0 || operacao <= 0 || quantidade <= 0 || valorEntrada == null ||
-                    fornecedor == null);
+                if (produto <= 0 || operacao <= 0 || quantidade <= 0 || valorEntrada <= 0 ||
+                    fornecedor == null)
+                    return "Produto, operação, quantidade, valor e fornecedor são obrigatórios.";
+
+                string valor = valorEntrada.ToString().Replace(",",".");
 
                 string query = $@"
                     INSERT
@@ -163,7 +166,7 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
 	                    {produto},
                         {operacao},
                         {quantidade},
-                        {valorEntrada},
+                        {valor},
                         '{serie}',
                         '{notaFiscal}',
                         '{fornecedor}',
@@ -182,18 +185,24 @@ namespace SistemaMarcenariaRodrigues.Acoes.EntradaSaida
             }
         }
 
-        public string Update(int id, int produto, int operacao, int quantidade, double valorEntrada, string serie,
+        public string Update(int id, int produto, int operacao, int quantidade, decimal valorEntrada, string serie,
             string notaFiscal, string fornecedor, string complemento, bool status)
         {
             try
             {
+                if (produto <= 0 || operacao <= 0 || quantidade <= 0 || valorEntrada <= 0 ||
+                    fornecedor == null)
+                    return "Produto, operação, quantidade, valor e fornecedor são obrigatórios.";
+
+                string valor = valorEntrada.ToString().Replace(",", ".");
+
                 string query = $@"
                     UPDATE
                     inventario SET
 	                    produto = {produto},
                         operacao = {operacao},
                         quantidade = {quantidade},
-                        valorentrada = {valorEntrada},
+                        valorentrada = {valor},
                         serie = '{serie}',
                         notaFiscal = '{notaFiscal}',
                         fornecedor = '{fornecedor}',
